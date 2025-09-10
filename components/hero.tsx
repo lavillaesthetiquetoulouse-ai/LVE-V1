@@ -1,0 +1,227 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Calendar, ArrowRight, Play } from 'lucide-react';
+import { useBrand } from './brand-provider';
+
+interface HeroProps {
+  title: string;
+  subtitle: string;
+  description?: string;
+  showSecondaryButton?: boolean;
+  secondaryButtonText?: string;
+  secondaryButtonHref?: string;
+}
+
+export function Hero({ 
+  title, 
+  subtitle, 
+  description,
+  showSecondaryButton = false,
+  secondaryButtonText = "En savoir plus",
+  secondaryButtonHref = "/a-propos"
+}: HeroProps) {
+  const { brand } = useBrand();
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  const ctaClass = brand === 'villa' ? 'btn-primary-villa' : 'btn-primary-laser';
+
+  // Détection mobile pour optimiser l'affichage
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return (
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background avec overlay adaptatif */}
+      <div className="absolute inset-0">
+        {/* Image de fond responsive */}
+        <picture>
+          <source 
+            media="(max-width: 768px)" 
+            srcSet="/light-blue-creative-ilustrative-medical-clinic-presentation-mobile.webp" 
+          />
+          <source 
+            media="(min-width: 769px)" 
+            srcSet="/light blue creative ilustrative medical clinic presentation.png" 
+          />
+          <div 
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: 'url(/light blue creative ilustrative medical clinic presentation.png)',
+            }}
+          />
+        </picture>
+        
+        {/* Overlay gradients adaptatifs */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-white/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/10" />
+      </div>
+      
+      <div className="container relative z-10 py-20 sm:py-24 lg:py-32">
+        {/* Titre principal centré avec typographie fluide */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
+        >
+          <div className="relative max-w-5xl mx-auto">
+            {/* Fond coloré doux responsive */}
+            <div className="absolute inset-0 bg-gradient-to-r from-pink-100/40 via-purple-50/30 to-blue-100/40 rounded-3xl blur-3xl transform -rotate-1 scale-110"></div>
+            <div className="absolute inset-0 bg-gradient-to-l from-amber-50/30 via-rose-50/40 to-indigo-50/30 rounded-3xl blur-2xl transform rotate-1 scale-105"></div>
+            
+            <h1 className="relative font-bold leading-tight tracking-tight mb-6 sm:mb-8">
+              {/* Typographie fluide avec clamp */}
+              <span 
+                className="block font-light tracking-tight"
+                style={{
+                  fontSize: 'clamp(2.5rem, 8vw, 4rem)',
+                  lineHeight: 'clamp(1.1, 1.2, 1.3)'
+                }}
+              >
+                <span className="bg-gradient-to-r from-rose-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                  Révélez votre beauté,
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
+                  Naturellement.
+                </span>
+              </span>
+            </h1>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center max-w-7xl mx-auto">
+          {/* Contenu texte - Responsive */}
+          <div className="text-center lg:text-left order-2 lg:order-1">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
+              <p 
+                className="text-neutral-500 mb-8 sm:mb-10 lg:mb-12 leading-relaxed"
+                style={{
+                  fontSize: 'clamp(1.125rem, 2.5vw, 1.375rem)',
+                  lineHeight: 'clamp(1.6, 1.7, 1.8)'
+                }}
+              >
+                Un regard médical sur votre beauté. Le Dr Nadine Baron vous accompagne pour révéler le meilleur de vous-même. La Villa Esthétique : le naturel en priorité.
+              </p>
+            </motion.div>
+
+            {/* Boutons CTA - Stack mobile, inline desktop */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 sm:mb-10 lg:mb-12"
+            >
+              <a
+                href="https://www.doctolib.fr/medecine-morphologique-et-anti-age/toulouse/nadine-baron"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${ctaClass} text-base sm:text-lg min-h-[48px] sm:min-h-[52px] px-6 sm:px-8`}
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'cta_click', {
+                      event_category: 'engagement',
+                      event_label: 'hero_doctolib',
+                      value: 1
+                    });
+                  }
+                }}
+              >
+                <Calendar className="w-5 h-5" />
+                Prendre RDV sur Doctolib
+                <ArrowRight className="w-5 h-5" />
+              </a>
+              
+              {showSecondaryButton && (
+                <a
+                  href={secondaryButtonHref}
+                  className="btn-secondary text-base sm:text-lg min-h-[48px] sm:min-h-[52px] px-6 sm:px-8"
+                >
+                  <Play className="w-4 h-4" />
+                  {secondaryButtonText}
+                </a>
+              )}
+            </motion.div>
+
+            {/* Trust indicators - Responsive grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="grid grid-cols-2 sm:flex sm:flex-wrap gap-4 sm:gap-6 lg:gap-8 text-sm justify-center lg:justify-start"
+            >
+              <div className="flex items-center gap-2 justify-center sm:justify-start">
+                <div className="w-2 h-2 bg-success rounded-full flex-shrink-0" />
+                <span className="text-neutral-600 font-medium">Dr Nadine Baron</span>
+              </div>
+              <div className="flex items-center gap-2 justify-center sm:justify-start">
+                <div className="w-2 h-2 bg-success rounded-full flex-shrink-0" />
+                <span className="text-neutral-600 font-medium">Toulouse Lardenne</span>
+              </div>
+              <div className="flex items-center gap-2 justify-center sm:justify-start">
+                <div className="w-2 h-2 bg-success rounded-full flex-shrink-0" />
+                <span className="text-neutral-600 font-medium">Équipements de pointe</span>
+              </div>
+              <div className="flex items-center gap-2 justify-center sm:justify-start">
+                <div className="w-2 h-2 bg-success rounded-full flex-shrink-0" />
+                <span className="text-neutral-600 font-medium">Suivi personnalisé</span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Vidéo responsive - Aspect ratio maintenu */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="relative order-1 lg:order-2"
+          >
+            <div className="relative w-full max-w-2xl mx-auto lg:max-w-none">
+              {/* Container avec aspect-ratio responsive */}
+              <div className="relative aspect-video bg-gradient-to-br from-brand-subtle/50 to-laser-subtle/50 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/20 backdrop-blur-sm">
+                {!videoLoaded && (
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-subtle to-laser-subtle flex items-center justify-center z-10">
+                    <div className="text-center text-neutral-700">
+                      <div className="animate-spin w-8 h-8 border-2 border-brand border-t-transparent rounded-full mx-auto mb-4"></div>
+                      <div className="text-sm font-medium">Chargement de la vidéo...</div>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Iframe YouTube responsive */}
+                <iframe
+                  src="https://www.youtube.com/embed/f7sHblqQ-W8?enablejsapi=1&origin=https://cheery-quokka-7f67a2.netlify.app&autoplay=0&mute=0&controls=1&rel=0&modestbranding=1&showinfo=0&fs=1&cc_load_policy=0&iv_load_policy=3&playsinline=1"
+                  title="Découvrez La Villa Esthétique - Dr Nadine Baron"
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                  allowFullScreen
+                  loading="lazy"
+                  onLoad={() => setVideoLoaded(true)}
+                  onError={() => setVideoLoaded(true)}
+                />
+              </div>
+              
+              {/* Éléments décoratifs adaptatifs */}
+              <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-16 sm:w-24 h-16 sm:h-24 bg-gradient-to-br from-brand/20 to-laser/20 rounded-full blur-xl" />
+              <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-20 sm:w-32 h-20 sm:h-32 bg-gradient-to-tr from-laser/10 to-brand/10 rounded-full blur-xl" />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
