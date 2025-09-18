@@ -68,24 +68,9 @@ export function Hero({
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background avec overlay adaptatif */}
       <div className="absolute inset-0">
-        {/* Image de fond responsive */}
-        <picture>
-          <source 
-            media="(max-width: 768px)" 
-            srcSet="/light-blue-creative-ilustrative-medical-clinic-presentation-mobile.webp" 
-          />
-          <source 
-            media="(min-width: 769px)" 
-            srcSet="/light blue creative ilustrative medical clinic presentation.png" 
-          />
-          <div 
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: 'url(/light blue creative ilustrative medical clinic presentation.png)',
-            }}
-          />
-        </picture>
-        
+        {/* Fond dégradé médical professionnel */}
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50" />
+
         {/* Overlay gradients adaptatifs */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-white/30" />
         <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/10" />
