@@ -3,10 +3,13 @@ import type { Metadata } from 'next';
 import { BrandProvider } from '@/components/brand-provider';
 import { CookieBanner } from '@/components/cookie-banner';
 import { StickyCTA } from '@/components/sticky-cta';
-import { homePageMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = {
-  ...homePageMetadata,
+  metadataBase: new URL('https://lavillaesthetique-toulouse.com'),
+  title: 'Dr Nadine Baron - Villa Esthétique & Docteur Laser | Médecine Esthétique Toulouse',
+  description: '✨ Dr Nadine Baron vous accueille à La Villa Esthétique, votre refuge beauté à Toulouse. Expertise médicale, technologies de pointe et résultats naturels. Révélez votre beauté en toute sérénité.',
+  keywords: 'médecine esthétique, épilation laser, Toulouse, Lardenne, Dr Nadine Baron, injections, botox, acide hyaluronique, peeling',
+  robots: 'index, follow',
   icons: {
     icon: [
       { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-32x32.png', sizes: '32x32', type: 'image/png' },

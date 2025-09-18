@@ -8,9 +8,12 @@ import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { Metadata } from 'next';
 import BlogClientFilters from './blog-client-filters';
-import { blogMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = blogMetadata;
+export const metadata: Metadata = {
+  title: 'Blog Médecine Esthétique - Dr Nadine Baron | La Villa Esthétique',
+  description: 'Articles médicaux vérifiés sur l\'épilation laser, injections anti-âge, soins du visage. Conseils d\'expert par le Dr Nadine Baron, médecin esthétique à Toulouse.',
+  keywords: 'blog médecine esthétique, épilation laser, injections anti-âge, Dr Nadine Baron, Toulouse, dermatologie esthétique'
+};
 
 async function getBlogData() {
   try {
