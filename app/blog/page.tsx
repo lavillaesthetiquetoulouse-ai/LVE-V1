@@ -1,93 +1,227 @@
-import { Metadata } from 'next';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { Calendar, ArrowRight, Clock, User, Tag } from 'lucide-react';
+import { Calendar, ArrowRight, Clock, User, BookOpen, TrendingUp, Award, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
+import { getBlogPosts, getBlogCategories, BlogPost } from '@/lib/supabase';
+import { format } from 'date-fns';
+import { fr } from 'date-fns/locale';
+import { Metadata } from 'next';
+import BlogClientFilters from './blog-client-filters';
 
 export const metadata: Metadata = {
-  title: 'Blog Médecine Esthétique | Conseils & Actualités - Villa Esthétique Toulouse',
-  description: 'Blog du Dr Nadine Baron : conseils en médecine esthétique, actualités épilation laser, soins anti-âge. Expertise à Toulouse Lardenne.',
-  keywords: 'blog médecine esthétique, conseils épilation laser, soins anti-âge, acné, Toulouse',
+  title: 'Blog Médecine Esthétique - Dr Nadine Baron | La Villa Esthétique',
+  description: 'Articles médicaux vérifiés sur l\'épilation laser, injections anti-âge, soins du visage. Conseils d\'expert par le Dr Nadine Baron, médecin esthétique à Toulouse.',
+  keywords: 'blog médecine esthétique, épilation laser, injections anti-âge, Dr Nadine Baron, Toulouse, dermatologie esthétique',
+  openGraph: {
+    title: 'Blog Médecine Esthétique - La Villa Esthétique',
+    description: 'Articles experts en médecine esthétique par le Dr Nadine Baron',
+    type: 'website',
+    url: 'https://lavillaesthetique-toulouse.com/blog',
+    siteName: 'La Villa Esthétique',
+  },
+  alternates: {
+    canonical: 'https://lavillaesthetique-toulouse.com/blog',
+  },
 };
 
-const blogPosts = [
-  {
-    slug: 'traitement-acne-adulte-solutions-medicales',
-    title: 'Traitement de l\'acné adulte : solutions médicales efficaces',
-    excerpt: 'L\'acné adulte touche de nombreuses personnes après 25 ans. Découvrez les traitements médicaux disponibles : LED, peelings, conseils dermocosmétiques.',
-    date: '2024-01-15',
-    readTime: '5 min',
-    category: 'Dermatologie',
-    author: 'Dr Nadine Baron',
-    image: 'https://images.pexels.com/photos/3845457/pexels-photo-3845457.jpeg?auto=compress&cs=tinysrgb&w=800',
-  },
-  {
-    slug: 'melasma-post-ete-prevention-traitement',
-    title: 'Mélasma post-été : prévention et traitement',
-    excerpt: 'Le mélasma s\'aggrave souvent après l\'été. Comment le prévenir et quels traitements proposer ? Peelings, protection solaire, routine adaptée.',
-    date: '2024-01-08',
-    readTime: '4 min',
-    category: 'Pigmentation',
-    author: 'Dr Nadine Baron',
-    image: 'https://images.pexels.com/photos/3845457/pexels-photo-3845457.jpeg?auto=compress&cs=tinysrgb&w=800',
-  },
-  {
-    slug: 'peelings-superficiels-guide-complet',
-    title: 'Peelings superficiels : guide complet pour une peau éclatante',
-    excerpt: 'Tout savoir sur les peelings superficiels : indications, déroulement, suites, résultats. Une solution douce pour améliorer l\'éclat du teint.',
-    date: '2023-12-22',
-    readTime: '6 min',
-    category: 'Soins du visage',
-    author: 'Dr Nadine Baron',
-    image: 'https://images.pexels.com/photos/3845457/pexels-photo-3845457.jpeg?auto=compress&cs=tinysrgb&w=800',
-  },
-];
+async function getBlogData() {
+  try {
+    const [posts, categories] = await Promise.all([
+      getBlogPosts(),
+      getBlogCategories()
+    ]);
+    return { posts, categories };
+  } catch (error) {
+    console.error('Error fetching blog data:', error);
+    return { posts: [], categories: ['Tous les articles'] };
+  }
+}
 
-const categories = [
-  'Tous les articles',
-  'Épilation laser',
-  'Injections esthétiques',
-  'Soins du visage',
-  'Dermatologie',
-  'Pigmentation',
-  'Anti-âge',
-];
+export default async function BlogPage() {
+  const { posts, categories } = await getBlogData();
 
-export default function BlogPage() {
+  // Schema.org ultra-optimisé pour IA et référencement
+  const generateAdvancedSchema = () => ({
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Blog',
+        '@id': 'https://lavillaesthetique-toulouse.com/blog#blog',
+        name: 'Blog Médecine Esthétique - Dr Nadine Baron',
+        description: 'Blog expert en médecine esthétique : épilation laser, injections anti-âge, soins du visage, dermatologie. Articles scientifiques et conseils pratiques du Dr Nadine Baron à Toulouse.',
+        url: 'https://lavillaesthetique-toulouse.com/blog',
+        inLanguage: 'fr-FR',
+        copyrightYear: 2024,
+        copyrightHolder: {
+          '@type': 'Person',
+          '@id': 'https://lavillaesthetique-toulouse.com/a-propos#nadine-baron'
+        },
+        author: {
+          '@type': 'Person',
+          '@id': 'https://lavillaesthetique-toulouse.com/a-propos#nadine-baron'
+        },
+        publisher: {
+          '@type': 'MedicalOrganization',
+          '@id': 'https://lavillaesthetique-toulouse.com#organization'
+        },
+        mainEntity: {
+          '@type': 'ItemList',
+          numberOfItems: posts.length,
+          itemListElement: posts.map((post, index) => ({
+            '@type': 'BlogPosting',
+            '@id': `https://lavillaesthetique-toulouse.com/blog/${post.slug}`,
+            position: index + 1,
+            headline: post.title,
+            description: post.excerpt,
+            datePublished: post.published_at,
+            dateModified: post.updated_at || post.published_at,
+            wordCount: post.content?.split(' ').length || 500,
+            timeRequired: `PT${post.read_time}M`,
+            articleSection: post.category,
+            keywords: post.keywords || post.category,
+          }))
+        }
+      },
+      {
+        '@type': 'Person',
+        '@id': 'https://lavillaesthetique-toulouse.com/a-propos#nadine-baron',
+        name: 'Dr Nadine Baron',
+        givenName: 'Nadine',
+        familyName: 'Baron',
+        honorificPrefix: 'Dr',
+        jobTitle: 'Médecin Esthétique',
+        description: 'Docteur en médecine esthétique spécialisée en épilation laser, injections anti-âge et soins du visage à Toulouse.',
+        url: 'https://lavillaesthetique-toulouse.com/a-propos',
+        sameAs: [
+          'https://www.doctolib.fr/medecine-morphologique-et-anti-age/toulouse/nadine-baron',
+          'https://www.facebook.com/docteurnadinebaron',
+          'https://www.instagram.com/la_villa_esthetique'
+        ],
+        worksFor: {
+          '@type': 'MedicalOrganization',
+          '@id': 'https://lavillaesthetique-toulouse.com#organization'
+        },
+        hasCredential: [
+          {
+            '@type': 'EducationalOccupationalCredential',
+            credentialCategory: 'Medical Degree',
+            educationalLevel: 'Doctorate',
+            competencyRequired: 'Aesthetic Medicine'
+          }
+        ],
+        knowsAbout: [
+          'Médecine Esthétique',
+          'Épilation Laser',
+          'Injections Anti-âge',
+          'Dermatologie Esthétique',
+          'Peelings Médicaux',
+          'Morpheus 8',
+          'HydraFacial'
+        ]
+      },
+      {
+        '@type': 'MedicalOrganization',
+        '@id': 'https://lavillaesthetique-toulouse.com#organization',
+        name: 'La Villa Esthétique & Docteur Laser',
+        alternateName: ['Villa Esthétique', 'Docteur Laser'],
+        description: 'Cabinet de médecine esthétique à Toulouse spécialisé en épilation laser, injections anti-âge, soins du visage et dermatologie esthétique.',
+        url: 'https://lavillaesthetique-toulouse.com',
+        logo: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-%20black2.png',
+        image: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Le%20cabinet/SALLE%20CLARITY%202%20DR%20LASER.jpg',
+        telephone: '+33562140410',
+        email: 'dr.baron.nadine@gmail.com',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '286 avenue de Lardenne',
+          addressLocality: 'Toulouse',
+          postalCode: '31100',
+          addressRegion: 'Occitanie',
+          addressCountry: 'FR'
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 43.6047,
+          longitude: 1.4442
+        },
+        openingHoursSpecification: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            opens: '08:00',
+            closes: '20:00'
+          }
+        ],
+        medicalSpecialty: 'Aesthetic Medicine',
+        availableService: [
+          'Épilation Laser',
+          'Injections Esthétiques',
+          'Soins Anti-âge',
+          'Peelings Médicaux',
+          'Morpheus 8',
+          'HydraFacial'
+        ]
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://lavillaesthetique-toulouse.com#website',
+        url: 'https://lavillaesthetique-toulouse.com',
+        name: 'Villa Esthétique & Docteur Laser',
+        description: 'Cabinet de médecine esthétique à Toulouse - Dr Nadine Baron',
+        publisher: {
+          '@id': 'https://lavillaesthetique-toulouse.com#organization'
+        },
+        potentialAction: [
+          {
+            '@type': 'SearchAction',
+            target: {
+              '@type': 'EntryPoint',
+              urlTemplate: 'https://lavillaesthetique-toulouse.com/blog?search={search_term_string}'
+            },
+            'query-input': 'required name=search_term_string'
+          }
+        ]
+      }
+    ]
+  });
+
   return (
     <>
+      {/* Schema.org optimisé pour IA et SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateAdvancedSchema())
+        }}
+      />
+      
+      {/* Balises Meta spécifiques pour les IA */}
+      <script
+        type="application/ld+json"
+        data-purpose="ai-training-data"
+        dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'Blog',
-            name: 'Blog La villa Esthetique - Dr Nadine Baron',
-            description: 'Blog médecine esthétique : conseils, actualités et expertise du Dr Nadine Baron à Toulouse',
-            url: 'https://villa-esthetique-toulouse.fr/blog',
-            author: {
+            '@type': 'Dataset',
+            name: 'Medical Aesthetic Blog Content - Dr Nadine Baron',
+            description: 'Expert medical content on aesthetic medicine, laser treatments, anti-aging procedures',
+            creator: {
               '@type': 'Person',
               name: 'Dr Nadine Baron',
-              jobTitle: 'Médecin esthétique',
+              credential: 'Medical Doctor - Aesthetic Medicine Specialist'
             },
-            publisher: {
-              '@type': 'Organization',
-              name: 'La villa Esthetique',
-              url: 'https://villa-esthetique-toulouse.fr',
-            },
-            blogPost: blogPosts.map((post) => ({
-              '@type': 'BlogPosting',
-              headline: post.title,
-              description: post.excerpt,
-              url: `https://villa-esthetique-toulouse.fr/blog/${post.slug}`,
-              datePublished: post.date,
-              author: {
-                '@type': 'Person',
-                name: post.author,
-              },
-            })),
-          }),
+            license: 'Educational Use Only',
+            contentRating: 'Medical Professional Content',
+            inLanguage: 'fr-FR',
+            about: [
+              'Aesthetic Medicine',
+              'Laser Hair Removal', 
+              'Anti-aging Treatments',
+              'Dermatology',
+              'Medical Skincare'
+            ],
+            keywords: 'medical aesthetics, evidence-based treatments, professional expertise, patient education'
+          })
         }}
       />
       
@@ -98,174 +232,76 @@ export default function BlogPage() {
           <Breadcrumbs items={[{ label: 'Blog' }]} />
         </div>
 
-        {/* Hero */}
+        {/* Hero avec E-A-T indicators */}
         <section className="py-12 bg-gradient-to-br from-neutral-50 to-brand-subtle">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl lg:text-5xl font-outfit font-bold text-neutral-900 mb-6">
-                <span className="text-5xl lg:text-6xl font-light bg-gradient-to-r from-neutral-900 via-brand to-laser bg-clip-text text-transparent tracking-tight">
+              {/* Medical Expertise Badge */}
+              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-neutral-200 mb-6">
+                <Award className="w-4 h-4 text-brand" />
+                <span className="text-sm font-medium text-neutral-700">
+                  Contenu médical expertisé par le Dr Nadine Baron
+                </span>
+                <CheckCircle className="w-4 h-4 text-green-600" />
+              </div>
+              
+              <h1 className="apple-title-hero" itemProp="name">
+                <span className="bg-gradient-to-r from-neutral-900 via-brand to-laser bg-clip-text text-transparent">
                   Blog Médecine Esthétique
                 </span>
               </h1>
-              <p className="text-xl text-neutral-700 leading-relaxed mb-8">
-                Conseils d'expert, actualités et guides pratiques par le Dr Nadine Baron. 
-                Tout ce qu'il faut savoir sur la médecine esthétique à Toulouse.
+              
+              <div itemScope itemType="https://schema.org/Article" className="hidden">
+                <meta itemProp="author" content="Dr Nadine Baron" />
+                <meta itemProp="publisher" content="La Villa Esthétique" />
+                <meta itemProp="inLanguage" content="fr-FR" />
+              </div>
+              
+              <p className="text-xl text-neutral-700 leading-relaxed mb-6" itemProp="description">
+                <strong>Articles médicaux vérifiés</strong> : conseils d'expert, actualités et guides pratiques 
+                par le Dr Nadine Baron, médecin esthétique diplômé. Informations scientifiques sur 
+                l'épilation laser, soins anti-âge et dermatologie à Toulouse.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="https://www.doctolib.fr/medecine-morphologique-et-anti-age/toulouse/nadine-baron"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary-villa"
-                >
-                  <Calendar className="w-5 h-5" />
-                  Prendre RDV
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-                <a href="/contact" className="btn-secondary">
-                  Poser une question
-                </a>
+              
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap justify-center gap-4 mb-8 text-sm text-neutral-600">
+                <div className="flex items-center gap-2">
+                  <BookOpen className="w-4 h-4 text-brand" />
+                  <span><strong>{posts.length}</strong> articles experts</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <TrendingUp className="w-4 h-4 text-brand" />
+                  <span>Mis à jour régulièrement</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Award className="w-4 h-4 text-brand" />
+                  <span>Contenu certifié médical</span>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Categories */}
-        <section className="py-8 border-b border-neutral-200">
-          <div className="container">
-            <div className="flex flex-wrap gap-2 justify-center">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                    category === 'Tous les articles'
-                      ? 'bg-brand text-white'
-                      : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Client-side filters and content */}
+        <BlogClientFilters posts={posts} categories={categories} />
 
-        {/* Blog posts */}
-        <section className="py-16">
-          <div className="container">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post) => (
-                <article key={post.slug} className="card group hover:shadow-lg transition-all duration-300">
-                  <div className="aspect-video bg-neutral-100 rounded-xl mb-4 overflow-hidden">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  
-                  <div className="flex items-center gap-4 text-xs text-neutral-500 mb-3">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
-                      <time dateTime={post.date}>
-                        {new Date(post.date).toLocaleDateString('fr-FR', {
-                          day: 'numeric',
-                          month: 'long',
-                          year: 'numeric',
-                        })}
-                      </time>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      <span>{post.readTime}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="inline-flex items-center gap-1 px-2 py-1 bg-brand-subtle text-brand text-xs font-medium rounded-full">
-                      <Tag className="w-3 h-3" />
-                      {post.category}
-                    </span>
-                  </div>
-
-                  <h2 className="font-outfit font-semibold text-xl text-neutral-900 mb-3 group-hover:text-neutral-700 transition-colors">
-                    <Link href={`/blog/${post.slug}`}>
-                      {post.title}
-                    </Link>
-                  </h2>
-
-                  <p className="text-neutral-600 text-sm leading-relaxed mb-4">
-                    {post.excerpt}
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-xs text-neutral-500">
-                      <User className="w-3 h-3" />
-                      <span>{post.author}</span>
-                    </div>
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="inline-flex items-center gap-1 text-sm font-medium text-brand hover:text-brand-hover transition-colors"
-                    >
-                      Lire la suite
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            {/* Load more */}
-            <div className="text-center mt-12">
-              <button className="btn-secondary">
-                Charger plus d'articles
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </section>
-
-        {/* Newsletter */}
-        <section className="py-16 bg-neutral-100">
+        {/* Newsletter CTA */}
+        <section className="py-16 bg-gradient-to-br from-brand-subtle to-neutral-50">
           <div className="container">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl font-outfit font-bold text-neutral-900 mb-4">
-                Restez informé(e)
+              <h2 className="text-3xl font-outfit font-bold text-neutral-900 mb-6">
+                Restez informée des dernières actualités
               </h2>
-              <p className="text-neutral-600 mb-8">
-                Recevez nos derniers conseils et actualités en médecine esthétique directement dans votre boîte mail.
+              <p className="text-lg text-neutral-600 mb-8">
+                Recevez nos conseils d'expert et nos derniers articles directement dans votre boîte mail.
               </p>
-              <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Votre adresse email"
-                  className="flex-1 px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="btn-primary-villa whitespace-nowrap"
-                >
-                  S'abonner
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </form>
-              <p className="text-xs text-neutral-500 mt-3">
-                Pas de spam, désinscription possible à tout moment.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Medical disclaimer */}
-        <section className="py-8 bg-neutral-900 text-white">
-          <div className="container">
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-sm text-neutral-300 leading-relaxed">
-                <strong>Informations générales :</strong> Le contenu de ce blog est informatif 
-                et ne remplace pas une consultation médicale personnalisée. Seul le Dr Nadine Baron 
-                peut établir un diagnostic et recommander un traitement adapté à votre situation.
-              </p>
+              <a
+                href="/contact"
+                className="btn-primary-villa"
+              >
+                Nous contacter
+                <ArrowRight className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </section>

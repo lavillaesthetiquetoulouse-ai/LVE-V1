@@ -219,8 +219,8 @@ export default function VillaEsthetiquePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <h1 className="text-4xl lg:text-5xl font-outfit font-bold text-neutral-900 mb-6">
-                  <span className="text-5xl lg:text-6xl font-light bg-gradient-to-r from-neutral-900 via-brand to-laser bg-clip-text text-transparent tracking-tight">
+                <h1 className="apple-title-hero">
+                  <span className="bg-gradient-to-r from-neutral-900 via-brand to-laser bg-clip-text text-transparent">
                     La Villa Esthétique
                   </span>
                 </h1>
@@ -470,7 +470,7 @@ export default function VillaEsthetiquePage() {
                   <div className="mt-6 pt-4 border-t border-neutral-200">
                     <div className="text-sm text-neutral-600">
                       <div>🚗 Parking gratuit à proximité</div>
-                      <div>🚌 Arrêt de bus à 200m</div>
+                      <div>🚌 Arrêt "Lardenne" - Lignes 37, 59, 67</div>
                       <div>♿ Cabinet accessible PMR</div>
                     </div>
                   </div>
@@ -492,11 +492,11 @@ export default function VillaEsthetiquePage() {
                   <div className="space-y-3 text-neutral-700">
                     <div className="flex justify-between">
                       <span>Lundi - Vendredi</span>
-                      <span className="font-medium">9h - 19h</span>
+                      <span className="font-medium">8h - 19h</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Samedi</span>
-                      <span className="font-medium">9h - 17h</span>
+                      <span className="font-medium">Fermé</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Dimanche</span>

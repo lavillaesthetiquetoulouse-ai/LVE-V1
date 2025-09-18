@@ -18,7 +18,7 @@ const contactInfo = {
   phone: '05 62 14 04 10',
   email: 'dr.baron.nadine@gmail.com',
   hours: {
-    weekdays: 'Lundi - Vendredi : 8h - 20h',
+    weekdays: 'Lundi - Vendredi : 8h - 19h',
     saturday: 'Samedi - Dimanche : Fermé',
   },
 };
@@ -91,7 +91,7 @@ export default function ContactPage() {
               },
               telephone: '+33500000000',
               email: 'dr.baron.nadine@gmail.com',
-              openingHours: ['Mo-Fr 08:00-20:00'],
+              openingHours: ['Mo-Fr 08:00-19:00'],
             },
           }),
         }}
@@ -108,8 +108,8 @@ export default function ContactPage() {
         <section className="py-12 bg-gradient-to-br from-neutral-50 to-brand-subtle">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl lg:text-5xl font-outfit font-bold text-neutral-900 mb-6">
-                <span className="text-5xl lg:text-6xl font-light bg-gradient-to-r from-neutral-900 via-brand to-laser bg-clip-text text-transparent tracking-tight">
+              <h1 className="apple-title-hero">
+                <span className="bg-gradient-to-r from-neutral-900 via-brand to-laser bg-clip-text text-transparent">
                   Nous Contacter
                 </span>
               </h1>

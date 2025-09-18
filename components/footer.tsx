@@ -109,7 +109,7 @@ export function Footer() {
             <div className="space-y-2 text-sm text-neutral-300">
               <div className="flex items-center gap-4">
                 <span className="w-20 flex-shrink-0">Lun - Ven</span>
-                <span>8h - 20h</span>
+                <span>8h - 19h</span>
               </div>
               <div className="flex items-center gap-4">
                 <span className="w-20 flex-shrink-0">Sam - Dim</span>
@@ -141,6 +141,9 @@ export function Footer() {
               </Link>
               <Link href="/contact" className="block text-neutral-300 hover:text-white transition-colors">
                 Contact
+              </Link>
+              <Link href="/on-parle-de-nous" className="block text-neutral-300 hover:text-white transition-colors">
+                On parle de nous
               </Link>
             </nav>
           </div>
@@ -278,7 +281,7 @@ export function Footer() {
               <div className="space-y-2 text-sm text-neutral-300">
                 <div className="flex items-center gap-4">
                   <span className="w-20 flex-shrink-0">Lun - Ven</span>
-                  <span>8h - 20h</span>
+                  <span>8h - 19h</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="w-20 flex-shrink-0">Sam - Dim</span>
@@ -309,6 +312,9 @@ export function Footer() {
                 </Link>
                 <Link href="/contact" className="block text-neutral-300 hover:text-white transition-colors py-1">
                   Contact
+                </Link>
+                <Link href="/on-parle-de-nous" className="block text-neutral-300 hover:text-white transition-colors py-1">
+                  On parle de nous
                 </Link>
               </nav>
             </AccordionSection>

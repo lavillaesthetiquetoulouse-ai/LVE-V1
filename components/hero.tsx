@@ -25,6 +25,7 @@ export function Hero({
   const { brand } = useBrand();
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   
   const ctaClass = brand === 'villa' ? 'btn-primary-villa' : 'btn-primary-laser';
 
@@ -37,6 +38,30 @@ export function Hero({
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Lazy load vidéo après interaction ou délai pour améliorer LCP
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldLoadVideo(true);
+    }, 2000); // Délai 2s pour permettre LCP optimal
+
+    const handleInteraction = () => {
+      setShouldLoadVideo(true);
+      clearTimeout(timer);
+    };
+
+    // Déclenche le chargement sur interaction
+    window.addEventListener('scroll', handleInteraction, { once: true, passive: true });
+    window.addEventListener('click', handleInteraction, { once: true });
+    window.addEventListener('touchstart', handleInteraction, { once: true, passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleInteraction);
+      window.removeEventListener('click', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+    };
   }, []);
 
   return (
@@ -74,28 +99,28 @@ export function Hero({
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <div className="relative max-w-5xl mx-auto">
+          <div className="relative max-w-6xl mx-auto">
             {/* Fond coloré doux responsive */}
             <div className="absolute inset-0 bg-gradient-to-r from-pink-100/40 via-purple-50/30 to-blue-100/40 rounded-3xl blur-3xl transform -rotate-1 scale-110"></div>
             <div className="absolute inset-0 bg-gradient-to-l from-amber-50/30 via-rose-50/40 to-indigo-50/30 rounded-3xl blur-2xl transform rotate-1 scale-105"></div>
             
-            <h1 className="relative font-bold leading-tight tracking-tight mb-6 sm:mb-8">
-              {/* Typographie fluide avec clamp */}
-              <span 
-                className="block font-light tracking-tight"
-                style={{
-                  fontSize: 'clamp(2.5rem, 8vw, 4rem)',
-                  lineHeight: 'clamp(1.1, 1.2, 1.3)'
-                }}
-              >
-                <span className="bg-gradient-to-r from-rose-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                  Révélez votre beauté,
+            <h1 className="relative font-outfit font-light tracking-tight leading-tight text-center" style={{fontSize: 'clamp(1.8rem, 6vw, 3.5rem)'}}>
+              {/* Première ligne */}
+              <div className="block">
+                <span className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 bg-clip-text text-transparent">
+                  Médecine esthétique & régénérative
                 </span>
-                <br />
-                <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
-                  Naturellement.
+              </div>
+              
+              {/* Deuxième ligne */}
+              <div className="block mt-2">
+                <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">
+                  l'innovation au service de votre
                 </span>
-              </span>
+                <span className="bg-gradient-to-r from-pink-400 via-rose-400 to-orange-400 bg-clip-text text-transparent ml-3">
+                  beauté naturelle.
+                </span>
+              </div>
             </h1>
           </div>
         </motion.div>
@@ -108,29 +133,31 @@ export function Hero({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              <p 
-                className="text-neutral-500 mb-8 sm:mb-10 lg:mb-12 leading-relaxed"
-                style={{
-                  fontSize: 'clamp(1.125rem, 2.5vw, 1.375rem)',
-                  lineHeight: 'clamp(1.6, 1.7, 1.8)'
-                }}
-              >
-                Un regard médical sur votre beauté. Le Dr Nadine Baron vous accompagne pour révéler le meilleur de vous-même. La Villa Esthétique : le naturel en priorité.
-              </p>
+              {description && (
+                <p 
+                  className="text-neutral-500 mb-8 sm:mb-10 lg:mb-12 leading-relaxed"
+                  style={{
+                    fontSize: 'clamp(1.125rem, 2.5vw, 1.375rem)',
+                    lineHeight: 'clamp(1.6, 1.7, 1.8)'
+                  }}
+                >
+                  {description}
+                </p>
+              )}
             </motion.div>
 
-            {/* Boutons CTA - Stack mobile, inline desktop */}
+            {/* Boutons CTA - Style Apple épuré */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 sm:mb-10 lg:mb-12"
+              className="flex flex-row gap-3 justify-center lg:justify-start mb-8 sm:mb-10 lg:mb-12"
             >
               <a
                 href="https://www.doctolib.fr/medecine-morphologique-et-anti-age/toulouse/nadine-baron"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${ctaClass} text-base sm:text-lg min-h-[48px] sm:min-h-[52px] px-6 sm:px-8`}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-brand hover:bg-brand-hover text-white font-medium rounded-full transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base"
                 onClick={() => {
                   if (typeof window !== 'undefined' && (window as any).gtag) {
                     (window as any).gtag('event', 'cta_click', {
@@ -141,17 +168,14 @@ export function Hero({
                   }
                 }}
               >
-                <Calendar className="w-5 h-5" />
-                Prendre RDV sur Doctolib
-                <ArrowRight className="w-5 h-5" />
+                Prendre RDV
               </a>
               
               {showSecondaryButton && (
                 <a
                   href={secondaryButtonHref}
-                  className="btn-secondary text-base sm:text-lg min-h-[48px] sm:min-h-[52px] px-6 sm:px-8"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-neutral-700 font-medium rounded-full transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base"
                 >
-                  <Play className="w-4 h-4" />
                   {secondaryButtonText}
                 </a>
               )}
@@ -193,26 +217,42 @@ export function Hero({
             <div className="relative w-full max-w-2xl mx-auto lg:max-w-none">
               {/* Container avec aspect-ratio responsive */}
               <div className="relative aspect-video bg-gradient-to-br from-brand-subtle/50 to-laser-subtle/50 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/20 backdrop-blur-sm">
-                {!videoLoaded && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-subtle to-laser-subtle flex items-center justify-center z-10">
+                {!shouldLoadVideo ? (
+                  /* Placeholder optimisé pour LCP */
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-subtle to-laser-subtle flex items-center justify-center cursor-pointer"
+                       onClick={() => setShouldLoadVideo(true)}>
                     <div className="text-center text-neutral-700">
-                      <div className="animate-spin w-8 h-8 border-2 border-brand border-t-transparent rounded-full mx-auto mb-4"></div>
-                      <div className="text-sm font-medium">Chargement de la vidéo...</div>
+                      <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center mb-4 mx-auto shadow-lg">
+                        <Play className="w-8 h-8 text-brand ml-1" />
+                      </div>
+                      <div className="text-sm font-medium">Découvrir la Villa Esthétique</div>
+                      <div className="text-xs text-neutral-500 mt-1">Cliquez pour charger la vidéo</div>
                     </div>
                   </div>
+                ) : (
+                  <>
+                    {!videoLoaded && (
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-subtle to-laser-subtle flex items-center justify-center z-10">
+                        <div className="text-center text-neutral-700">
+                          <div className="animate-spin w-8 h-8 border-2 border-brand border-t-transparent rounded-full mx-auto mb-4"></div>
+                          <div className="text-sm font-medium">Chargement de la vidéo...</div>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Iframe YouTube responsive - Chargement différé */}
+                    <iframe
+                      src="https://www.youtube.com/embed/f7sHblqQ-W8?enablejsapi=1&origin=https://cheery-quokka-7f67a2.netlify.app&autoplay=0&mute=0&controls=1&rel=0&modestbranding=1&showinfo=0&fs=1&cc_load_policy=0&iv_load_policy=3&playsinline=1"
+                      title="Découvrez La Villa Esthétique - Dr Nadine Baron"
+                      className="absolute inset-0 w-full h-full border-0"
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                      allowFullScreen
+                      loading="lazy"
+                      onLoad={() => setVideoLoaded(true)}
+                      onError={() => setVideoLoaded(true)}
+                    />
+                  </>
                 )}
-                
-                {/* Iframe YouTube responsive */}
-                <iframe
-                  src="https://www.youtube.com/embed/f7sHblqQ-W8?enablejsapi=1&origin=https://cheery-quokka-7f67a2.netlify.app&autoplay=0&mute=0&controls=1&rel=0&modestbranding=1&showinfo=0&fs=1&cc_load_policy=0&iv_load_policy=3&playsinline=1"
-                  title="Découvrez La Villa Esthétique - Dr Nadine Baron"
-                  className="absolute inset-0 w-full h-full border-0"
-                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-                  allowFullScreen
-                  loading="lazy"
-                  onLoad={() => setVideoLoaded(true)}
-                  onError={() => setVideoLoaded(true)}
-                />
               </div>
               
               {/* Éléments décoratifs adaptatifs */}

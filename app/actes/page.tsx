@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { Metadata } from 'next';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Breadcrumbs } from '@/components/breadcrumbs';
@@ -35,11 +34,11 @@ const soinsData: Record<string, SoinData> = {
       'Comblement des rides profondes et restauration des volumes',
       'Résultats immédiats et amélioration progressive',
       'Effet lifting naturel sans chirurgie',
-      'Durée d\'action prolongée (12-18 mois)',
+      'Durée d\'action prolongée (6-12 mois)',
       'Produit résorbable et biocompatible'
     ],
     duree: '30 à 45 minutes',
-    seances: 'Renouvellement tous les 12-18 mois',
+    seances: 'Renouvellement tous les 6-12 mois',
     resultats: 'Effet immédiat, amélioration progressive sur 3 mois',
     icon_small: <img src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/injection%20(1).png" alt="Injection Radiesse" className="w-6 h-6" />
   },
@@ -57,7 +56,7 @@ const soinsData: Record<string, SoinData> = {
       'Résultats immédiats avec amélioration progressive'
     ],
     duree: '30 à 45 minutes',
-    seances: 'Durée 12 à 18 mois selon le produit',
+    seances: 'Durée 6 à 12 mois selon le produit',
     resultats: 'Effet immédiat, résultat optimal sous 15 jours',
     icon_small: <img src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/injection.png" alt="Injection Acide Hyaluronique" className="w-6 h-6" />
   },
@@ -165,7 +164,7 @@ const soinsData: Record<string, SoinData> = {
       'Réduction de 20 à 25% de la masse graisseuse par séance'
     ],
     duree: '60 à 90 minutes par zone',
-    seances: '1 à 3 séances par zone selon les besoins',
+    seances: 'Une à quatre séances par zone selon les besoins',
     resultats: 'Réduction visible des bourrelets sous 2-3 mois',
     icon_small: <img src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/body-ache.png" alt="Cryolipolyse" className="w-5 h-5" />
   },
@@ -346,6 +345,7 @@ export default function SoinsPage() {
   }, [activeCategory, searchTerm]);
   return (
     <>
+      {/* Schema JSON-LD pour les services médicaux */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -354,7 +354,81 @@ export default function SoinsPage() {
             '@type': 'MedicalWebPage',
             name: 'Soins de Médecine Esthétique - Villa Esthétique Toulouse',
             description: 'Découvrez tous nos soins de médecine esthétique à Toulouse : épilation laser, injections, peelings, soins visage.',
-            url: 'https://villa-esthetique-toulouse.fr/actes',
+            url: 'https://cheery-quokka-7f67a2.netlify.app/actes',
+            mainEntity: {
+              '@type': 'MedicalBusiness',
+              name: 'La Villa Esthétique',
+              url: 'https://cheery-quokka-7f67a2.netlify.app',
+              telephone: '+33562140410',
+              email: 'contact@lavillaesthetique.com',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: '286 Avenue de Lardenne',
+                addressLocality: 'Toulouse',
+                postalCode: '31100',
+                addressCountry: 'FR'
+              },
+              founder: {
+                '@type': 'Person',
+                name: 'Dr Nadine Baron',
+                jobTitle: 'Médecin Esthétique'
+              },
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Services de Médecine Esthétique',
+                itemListElement: [
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'MedicalProcedure',
+                      name: 'Injections d\'Acide Hyaluronique',
+                      description: 'Comblement des rides et augmentation des volumes pour un rajeunissement naturel'
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'MedicalProcedure',
+                      name: 'Épilation Laser Clarity 2',
+                      description: 'Épilation définitive pour tous phototypes de peau avec laser de dernière génération'
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'MedicalProcedure',
+                      name: 'Morpheus 8',
+                      description: 'Microneedling RF pour raffermir et retendre la peau du visage et du corps'
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'MedicalProcedure',
+                      name: 'HydraFacial',
+                      description: 'Soin révolutionnaire 3-en-1 : nettoyage, exfoliation et hydratation'
+                    }
+                  }
+                ]
+              }
+            },
+            breadcrumb: {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  name: 'Accueil',
+                  item: 'https://cheery-quokka-7f67a2.netlify.app'
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 2,
+                  name: 'Soins',
+                  item: 'https://cheery-quokka-7f67a2.netlify.app/actes'
+                }
+              ]
+            }
           }),
         }}
       />
@@ -369,30 +443,33 @@ export default function SoinsPage() {
         {/* Hero */}
         <section className="py-12 bg-gradient-to-br from-neutral-50 to-brand-subtle">
           <div className="container">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl lg:text-5xl font-outfit font-bold text-neutral-900 mb-6">
-                <span className="text-5xl lg:text-6xl font-light bg-gradient-to-r from-neutral-900 via-brand to-laser bg-clip-text text-transparent tracking-tight">
-                  Nos Soins de Médecine Esthétique
+            <div className="text-center">
+              <h1 className="apple-title-hero">
+                <span className="bg-gradient-to-r from-neutral-900 via-brand to-laser bg-clip-text text-transparent">
+                  Nos Soins de <br />Médecine Esthétique
                 </span>
               </h1>
-              <p className="text-xl text-neutral-700 leading-relaxed mb-8">
-                Le Dr Nadine Baron vous propose une gamme complète de soins esthétiques personnalisés, 
-                réalisés avec des équipements de dernière génération dans un environnement sécurisé.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="https://www.doctolib.fr/medecine-morphologique-et-anti-age/toulouse/nadine-baron"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary-villa"
-                >
-                  <Calendar className="w-5 h-5" />
-                  Prendre RDV
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-                <a href="/contact" className="btn-secondary">
-                  Poser une question
-                </a>
+              <div className="max-w-4xl mx-auto">
+                <p className="text-xl text-neutral-700 leading-relaxed mb-8">
+                  Le <strong>Dr Nadine Baron</strong>, médecin esthétique expérimenté à <strong>Toulouse</strong>, vous propose une gamme complète de <strong>soins de médecine esthétique</strong> personnalisés. 
+                  Découvrez nos <strong>injections d'acide hyaluronique</strong>, <strong>épilation laser définitive</strong>, soins <strong>anti-âge Morpheus 8</strong> et traitements <strong>HydraFacial</strong>, 
+                  réalisés avec des équipements de dernière génération dans un environnement médical sécurisé.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="https://www.doctolib.fr/medecine-morphologique-et-anti-age/toulouse/nadine-baron"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary-villa"
+                  >
+                    <Calendar className="w-5 h-5" />
+                    Prendre RDV
+                    <ArrowRight className="w-5 h-5" />
+                  </a>
+                  <a href="/contact" className="btn-secondary">
+                    Poser une question
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -519,7 +596,7 @@ export default function SoinsPage() {
                           <img
                             src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Docteur%20Laser.png"
                             alt="Cabinet Docteur Laser - Équipements de pointe"
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-cover"
                           />
                         </div>
                         <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-white rounded-2xl shadow-xl flex items-center justify-center">
@@ -542,36 +619,36 @@ export default function SoinsPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="bg-white rounded-2xl shadow-lg border border-neutral-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:border-brand/20"
+                    className="group bg-white rounded-2xl shadow-lg border border-neutral-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:border-brand/20 hover:-translate-y-1"
                   >
-                    <div className="p-8">
-                      {/* Header horizontal */}
-                      <div className="flex items-start gap-6 mb-6">
-                        <div className={`flex items-center justify-center w-16 h-16 bg-gradient-to-br ${soin.color} rounded-2xl text-white flex-shrink-0 shadow-lg`}>
-                          <div className="w-8 h-8 flex items-center justify-center">
+                    <div className="p-4 sm:p-6 lg:p-8">
+                      {/* Header responsive */}
+                      <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6">
+                        <div className={`flex items-center justify-center w-16 h-16 bg-gradient-to-br ${soin.color} rounded-2xl text-white flex-shrink-0 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-xl self-center sm:self-start`}>
+                          <div className="w-8 h-8 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                             {soin.icon}
                           </div>
                         </div>
-                        <div className="flex-1">
-                          <h3 className="text-3xl font-outfit font-bold text-neutral-900 mb-3">
+                        <div className="flex-1 text-center sm:text-left">
+                          <h3 className="text-2xl sm:text-3xl font-outfit font-bold text-neutral-900 mb-3">
                             {soin.title}
                           </h3>
-                          <p className="text-lg text-neutral-600 leading-relaxed mb-4">
+                          <p className="text-base sm:text-lg text-neutral-600 leading-relaxed mb-4">
                             {soin.description}
                           </p>
                           
-                          {/* Quick Info horizontal */}
-                          <div className="flex flex-wrap gap-6 text-sm">
-                            <div className="flex items-center gap-2">
-                              <Clock className="w-4 h-4 text-brand" />
+                          {/* Quick Info responsive */}
+                          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-6 text-sm">
+                            <div className="flex items-center justify-center sm:justify-start gap-2">
+                              <Clock className="w-4 h-4 text-brand flex-shrink-0" />
                               <span className="text-neutral-700"><strong>Durée:</strong> {soin.duree}</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                              <Target className="w-4 h-4 text-brand" />
+                            <div className="flex items-center justify-center sm:justify-start gap-2">
+                              <Target className="w-4 h-4 text-brand flex-shrink-0" />
                               <span className="text-neutral-700"><strong>Séances:</strong> {soin.seances}</span>
                             </div>
-                            <div className="flex items-center gap-2">
-                              <CheckCircle className="w-4 h-4 text-brand" />
+                            <div className="flex items-center justify-center sm:justify-start gap-2">
+                              <CheckCircle className="w-4 h-4 text-brand flex-shrink-0" />
                               <span className="text-neutral-700"><strong>Résultats:</strong> {soin.resultats}</span>
                             </div>
                           </div>
@@ -579,7 +656,7 @@ export default function SoinsPage() {
                       </div>
 
                       {/* Détails complets */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-6">
                         <div>
                           <h4 className="font-semibold text-lg text-neutral-900 mb-4 flex items-center gap-2">
                             <Star className="w-5 h-5 text-brand" />
@@ -598,34 +675,43 @@ export default function SoinsPage() {
                         </div>
                         
                         <div>
-                          {/* Tarification */}
-                          <div className="p-6 bg-gradient-to-br from-brand-subtle/20 to-laser-subtle/20 rounded-xl border border-brand/10 mb-6">
+                          {/* Tarification avec animations de survol */}
+                          <div className="group relative p-6 bg-gradient-to-br from-brand-subtle/20 to-laser-subtle/20 rounded-xl border border-brand/10 mb-6 transition-all duration-300 hover:from-brand-subtle/30 hover:to-laser-subtle/30 hover:border-brand/20 hover:shadow-lg hover:-translate-y-1 cursor-pointer overflow-hidden">
                             <div className="flex items-center gap-2 mb-3">
-                              <Thermometer className="w-5 h-5 text-brand" />
-                              <h4 className="font-semibold text-lg text-brand">Tarification personnalisée</h4>
+                              <div className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
+                                <Thermometer className="w-5 h-5 text-brand transition-colors duration-300 group-hover:text-brand-hover" />
+                              </div>
+                              <h4 className="font-semibold text-lg text-brand transition-colors duration-300 group-hover:text-brand-hover">
+                                Tarification personnalisée
+                              </h4>
                             </div>
-                            <p className="text-sm text-neutral-700 leading-relaxed">
+                            <p className="text-sm text-neutral-700 leading-relaxed transition-colors duration-300 group-hover:text-neutral-800">
                               Les tarifs dépendent de la zone à traiter, de votre type de peau et du protocole personnalisé. 
                               Un devis détaillé vous sera remis lors de votre consultation avec le Dr Nadine Baron.
                             </p>
+                            
+                            {/* Effet de lueur au survol */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-brand/5 to-laser/5 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"></div>
                           </div>
                           
-                          {/* Actions */}
+                          {/* Actions optimisées pour mobile */}
                           <div className="flex flex-col sm:flex-row gap-3">
                             <a
                               href="https://www.doctolib.fr/medecine-morphologique-et-anti-age/toulouse/nadine-baron"
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="btn-primary-villa flex-1 justify-center"
+                              className="btn-primary-villa flex-1 justify-center py-4 sm:py-3 text-base sm:text-sm font-semibold"
+                              style={{ minHeight: '48px' }}
                             >
-                              <Calendar className="w-4 h-4" />
+                              <Calendar className="w-5 h-5 sm:w-4 sm:h-4" />
                               Prendre RDV
                             </a>
                             <a
                               href={soin.blogLink || '/blog'}
-                              className="btn-secondary flex-1 justify-center"
+                              className="btn-secondary flex-1 justify-center py-4 sm:py-3 text-base sm:text-sm font-semibold"
+                              style={{ minHeight: '48px' }}
                             >
-                              <ExternalLink className="w-4 h-4" />
+                              <ExternalLink className="w-5 h-5 sm:w-4 sm:h-4" />
                               En savoir plus
                             </a>
                           </div>
@@ -673,11 +759,12 @@ export default function SoinsPage() {
           <div className="container">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl lg:text-4xl font-outfit font-bold text-neutral-900 mb-6">
-                Prêt(e) à découvrir nos soins ?
+                Votre Consultation de Médecine Esthétique à Toulouse
               </h2>
               <p className="text-lg text-neutral-700 leading-relaxed mb-8">
-                Consultation personnalisée pour évaluer vos besoins et définir le protocole le plus adapté. 
-                Le Dr Nadine Baron vous accompagne dans votre parcours beauté.
+                <strong>Consultation personnalisée</strong> avec le <strong>Dr Nadine Baron</strong> pour évaluer vos besoins esthétiques et définir le protocole de <strong>médecine esthétique</strong> le plus adapté. 
+                Notre expertise en <strong>injections anti-âge</strong>, <strong>épilation laser</strong> et <strong>soins du visage</strong> vous garantit des résultats naturels et durables.
+                Prenez rendez-vous dès maintenant dans notre cabinet à <strong>Toulouse Lardenne</strong>.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a

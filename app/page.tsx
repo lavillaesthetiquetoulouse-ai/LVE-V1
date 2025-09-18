@@ -122,10 +122,6 @@ const faqItems = [
     answer: 'En moyenne 6 à 8 séances sont nécessaires pour une épilation définitive, espacées de 6 à 8 semaines. Le nombre varie selon la zone traitée et le type de poil.',
   },
   {
-    question: 'Acceptez-vous les paiements en plusieurs fois ?',
-    answer: 'Oui, nous proposons des facilités de paiement pour les traitements complets. Les modalités sont discutées lors de la consultation.',
-  },
-  {
     question: 'Quelles sont les contre-indications aux traitements laser ?',
     answer: 'Les principales contre-indications incluent la grossesse, certains traitements médicaux, les infections cutanées actives. Une consultation préalable permet d\'évaluer votre éligibilité.',
   },
@@ -134,6 +130,7 @@ const faqItems = [
 export default function HomePage() {
   return (
     <>
+      
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -161,7 +158,7 @@ export default function HomePage() {
               priceRange: '€€',
               paymentAccepted: 'Cash, Credit Card',
               currenciesAccepted: 'EUR',
-              openingHours: ['Mo-Fr 08:00-20:00'],
+              openingHours: ['Mo-Fr 08:00-19:00'],
               medicalSpecialty: 'Dermatology',
               physician: {
                 '@type': 'Physician',
@@ -177,8 +174,8 @@ export default function HomePage() {
       
       <main>
         <Hero 
-          title="Révélez votre beauté."
-          subtitle="Naturellement."
+          title="Médecine esthétique & régénérative – l'innovation au service de votre beauté naturelle."
+          subtitle=""
           description="Un regard médical sur votre beauté. Le Dr Nadine Baron vous accompagne pour révéler le meilleur de vous-même. La Villa Esthétique : le naturel en priorité."
           showSecondaryButton={true}
           secondaryButtonText="Découvrir l'expérience"
@@ -205,7 +202,7 @@ export default function HomePage() {
                 className="text-neutral-600 max-w-3xl mx-auto font-light leading-relaxed"
                 style={{ fontSize: 'var(--text-lg)' }}
               >
-                Chaque traitement est une œuvre d'art pour des résultats naturels et une expérience exceptionnelle.
+                Chaque traitement pensé  est une œuvre d'art pour des résultats naturels et une expérience exceptionnelle.
               </p>
             </motion.div>
 
@@ -236,8 +233,6 @@ export default function HomePage() {
                     </h3>
                     <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-neutral-500 mt-2">
                       <span>⏰ 20-45 min</span>
-                      <span>⭐ 5/5</span>
-                      <span className="text-neutral-900 font-semibold">Prix sur consultation</span>
                     </div>
                   </div>
                 </div>
@@ -245,24 +240,24 @@ export default function HomePage() {
                   className="text-neutral-600 leading-relaxed mb-6"
                   style={{ fontSize: 'var(--text-base)' }}
                 >
-                  Toxine botulique et acide hyaluronique pour un rajeunissement naturel. 
-                  Traitement des rides d'expression, augmentation des lèvres, 
+                  Inducteur de collagènes, polynucléotides, exosomes et acide hyaluronique pour un rajeunissement naturel. 
+                  Traitement des rides d'expression, embellissement des lèvres, 
                   restauration des volumes. Résultats harmonieux et subtils. 
                   Tarifs personnalisés selon la zone traitée, évalués lors de la consultation médicale.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <a
-                    href="/actes"
+                    href="/blog"
                     className="btn-primary-villa justify-center sm:justify-start"
                   >
                     Découvrir
                     <ArrowRight className="w-5 h-5" />
                   </a>
                   <a
-                    href="/contact"
+                    href="/actes"
                     className="btn-secondary justify-center sm:justify-start"
                   >
-                    Nous contacter
+                    Soins injections
                   </a>
                 </div>
               </div>
@@ -277,8 +272,7 @@ export default function HomePage() {
                 </div>
                 <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-xl shadow-xl flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-lg sm:text-2xl font-bold text-neutral-900">15j</div>
-                    <div className="text-xs text-neutral-600">Réflexion</div>
+                    <div className="text-xs sm:text-sm font-medium text-neutral-900 text-center px-1">Délai minimum respecté</div>
                   </div>
                 </div>
               </div>
@@ -296,22 +290,23 @@ export default function HomePage() {
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-brand-subtle to-laser-subtle rounded-2xl flex items-center justify-center hover-scale">
                     <img
-                      src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/traitement-facial%20(1).png"
-                      alt="Icône traitement facial"
+                      src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/Morpheus8%20machine-dr-baron-la-villa-esthetique.png"
+                      alt="Icône Morpheus8"
                       className="w-6 h-6 sm:w-8 sm:h-8"
                     />
                   </div>
                   <div>
-                    <h3 
-                      className="font-outfit font-bold text-neutral-900"
-                      style={{ fontSize: 'var(--text-2xl)' }}
-                    >
-                      Soins du Visage & Peelings
-                    </h3>
+                    <div>
+                      <h3 
+                        className="font-outfit font-bold text-neutral-900"
+                        style={{ fontSize: 'var(--text-2xl)' }}
+                      >
+                        Soins du Visage
+                      </h3>
+                      <p className="text-neutral-500 text-lg font-light mt-2">peeling et hydrafacial</p>
+                    </div>
                     <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-neutral-500 mt-2">
                       <span>⏰ 45-60 min</span>
-                      <span>⭐ 5/5</span>
-                      <span className="text-brand font-semibold">Prix sur consultation</span>
                     </div>
                   </div>
                 </div>
@@ -320,20 +315,21 @@ export default function HomePage() {
                   style={{ fontSize: 'var(--text-base)' }}
                 >
                   Peelings médicaux superficiels et moyens, soins personnalisés anti-âge, 
-                  traitement de l'acné par LED. Amélioration de la texture, de l'éclat 
+                  traitement de l'acné. Amélioration de la texture, de l'éclat 
                   et hydratation profonde pour tous types de peau. 
+                  Chaque soin peeling est accompagné par une séance de LED pour améliorer la réparation cutanée.
                   Tarifs adaptés selon le protocole choisi, déterminés en consultation.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <a
-                    href="/actes/peelings-medicaux"
+                    href="/blog"
                     className="btn-primary-villa justify-center sm:justify-start"
                   >
                     Découvrir
                     <ArrowRight className="w-5 h-5" />
                   </a>
                   <a
-                    href="/actes/soins-visage"
+                    href="/actes"
                     className="btn-secondary justify-center sm:justify-start"
                   >
                     Soins visage
@@ -363,7 +359,7 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mb-16 sm:mb-20 lg:mb-24"
             >
               <div className="lg:order-2 space-y-6 sm:space-y-8">
                 <div className="flex items-center gap-4 mb-6">
@@ -383,8 +379,6 @@ export default function HomePage() {
                     </h3>
                     <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-neutral-500 mt-2">
                       <span>⏰ 15-45 min</span>
-                      <span>⭐ 4-5/5</span>
-                      <span className="text-brand font-semibold">Prix sur consultation</span>
                     </div>
                   </div>
                 </div>
@@ -392,59 +386,241 @@ export default function HomePage() {
                   className="text-neutral-600 leading-relaxed mb-6"
                   style={{ fontSize: 'var(--text-base)' }}
                 >
-                  Lasers vasculaires pour couperose et télangiectasies, détatouage 
-                  par laser Q-switched. Technologies avancées pour des traitements 
-                  précis et sécurisés avec des résultats durables. 
-                  Devis personnalisé établi après évaluation médicale de la zone à traiter.
+                  Détatouage par laser Q-switched, traitement précis et sécurisé 
+                  pour tous types de tatouages et toutes couleurs d'encre. 
+                  Technologies avancées pour des résultats durables avec un minimum de séances. 
+                  Devis personnalisé établi après évaluation médicale du tatouage.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <a
-                    href="/actes/lasers-vasculaires"
+                    href="/blog"
                     className="btn-primary-villa justify-center sm:justify-start"
                   >
                     Découvrir
                     <ArrowRight className="w-5 h-5" />
                   </a>
                   <a
-                    href="/actes/detatouage-laser"
+                    href="/actes"
                     className="btn-secondary justify-center sm:justify-start"
                   >
-                    Détatouage
+                    Soins laser
                   </a>
                 </div>
               </div>
               <div className="relative lg:order-1">
-                <div className="aspect-[4/3] bg-gradient-to-br from-brand-subtle/50 to-laser-subtle/50 rounded-2xl sm:rounded-3xl overflow-hidden hover-lift">
-                  <img
-                    src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/LED-%20peau-skin-esthetic-medecine.png"
-                    alt="LED thérapie - Traitement peau esthétique médecine - Cabinet Dr Baron"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-2xl shadow-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-lg sm:text-2xl font-bold text-brand">KTP</div>
-                    <div className="text-xs text-neutral-600">Laser</div>
+                {/* Carousel d'images style Apple */}
+                <div className="aspect-[4/3] bg-gradient-to-br from-brand-subtle/50 to-laser-subtle/50 rounded-2xl sm:rounded-3xl overflow-hidden hover-lift relative">
+                  <div className="carousel-container h-full">
+                    <div className="carousel-track flex h-full transition-transform duration-700 ease-in-out" style={{
+                      animation: 'carousel-slide 20s infinite linear'
+                    }}>
+                      <div className="carousel-slide flex-shrink-0 w-full h-full">
+                        <img
+                          src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Le%20cabinet/SALLE%20CLARITY%202%20DR%20LASER.jpg"
+                          alt="Salle Clarity 2 Docteur Laser"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="carousel-slide flex-shrink-0 w-full h-full">
+                        <img
+                          src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Le%20cabinet/cryolipolyse%20et%20morpheus%208%20salle.jpg"
+                          alt="Salle Cryolipolyse et Morpheus 8"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="carousel-slide flex-shrink-0 w-full h-full">
+                        <img
+                          src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Le%20cabinet/CRISTAL%20FIT.jpg"
+                          alt="Salle Cristal Fit"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="carousel-slide flex-shrink-0 w-full h-full">
+                        <img
+                          src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Le%20cabinet/cristal%20fit%202.jpg"
+                          alt="Salle Cristal Fit 2"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="carousel-slide flex-shrink-0 w-full h-full">
+                        <img
+                          src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Le%20cabinet/SALLE%20DETATOUAGE%20DOCTEUR%20LASER.jpg"
+                          alt="Salle Détatouage Docteur Laser"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="carousel-slide flex-shrink-0 w-full h-full">
+                        <img
+                          src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Le%20cabinet/laser-detatouage--hollywood-spectra-dr-baron-esthetique-la-villa-esthetique-toulouse.jpg"
+                          alt="Laser Détatouage Hollywood Spectra - Dr Baron"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="carousel-slide flex-shrink-0 w-full h-full">
+                        <img
+                          src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Le%20cabinet/laser-Limecca-dr-baron-esthetique-la-villa-esthetique-toulouse.jpg"
+                          alt="Laser Lumecca - Dr Baron La Villa Esthétique"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Indicateurs discrets style Apple */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                    <div className="w-2 h-2 bg-white/60 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/30 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/30 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/30 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/30 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/30 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/30 rounded-full"></div>
                   </div>
                 </div>
+                
+                <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-2xl shadow-xl flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-sm sm:text-lg font-bold text-brand">Laser</div>
+                    <div className="text-xs text-neutral-600">Lumecca</div>
+                  </div>
+                </div>
+                
+                {/* CSS pour l'animation du carousel */}
+                <style jsx>{`
+                  @keyframes carousel-slide {
+                    0% { transform: translateX(0); }
+                    14% { transform: translateX(0); }
+                    17% { transform: translateX(-100%); }
+                    31% { transform: translateX(-100%); }
+                    34% { transform: translateX(-200%); }
+                    48% { transform: translateX(-200%); }
+                    51% { transform: translateX(-300%); }
+                    65% { transform: translateX(-300%); }
+                    68% { transform: translateX(-400%); }
+                    82% { transform: translateX(-400%); }
+                    85% { transform: translateX(-500%); }
+                    99% { transform: translateX(-500%); }
+                    100% { transform: translateX(-600%); }
+                  }
+                  
+                  .carousel-track:hover {
+                    animation-play-state: paused;
+                  }
+                `}</style>
               </div>
             </motion.div>
 
+            {/* Traitement contre la chute de cheveux - Gauche */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-              className="text-center mt-8 sm:mt-12"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center"
             >
-              <a
-                href="https://www.doctolib.fr/medecine-morphologique-et-anti-age/toulouse/nadine-baron"
-                className="btn-primary-villa"
-              >
-                Explorer l'innovation
-                <ArrowRight className="w-5 h-5" />
-              </a>
+              <div className="space-y-6 sm:space-y-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-brand-subtle to-laser-subtle rounded-2xl flex items-center justify-center hover-scale">
+                    <img
+                      src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/PRP-la-villa-esthetique-dr-baron-cehveux.png"
+                      alt="Icône PRP cheveux"
+                      className="w-6 h-6 sm:w-8 sm:h-8"
+                    />
+                  </div>
+                  <div>
+                    <h3 
+                      className="font-outfit font-bold text-neutral-900"
+                      style={{ fontSize: 'var(--text-2xl)' }}
+                    >
+                      Traitement contre la chute de cheveux
+                    </h3>
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-neutral-500 mt-2">
+                      <span>⏰ 45-60 min</span>
+                    </div>
+                  </div>
+                </div>
+                <p 
+                  className="text-neutral-600 leading-relaxed mb-6"
+                  style={{ fontSize: 'var(--text-base)' }}
+                >
+                  Traitement PRP (Plasma Riche en Plaquettes) pour stimuler la repousse capillaire 
+                  et freiner la chute des cheveux. Technique naturelle utilisant vos propres 
+                  facteurs de croissance pour revitaliser le cuir chevelu et renforcer les follicules. 
+                  Protocole personnalisé adapté à votre type d'alopécie.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <a
+                    href="/blog"
+                    className="btn-primary-villa justify-center sm:justify-start"
+                  >
+                    Découvrir
+                    <ArrowRight className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="/actes"
+                    className="btn-secondary justify-center sm:justify-start"
+                  >
+                    Soins capillaires
+                  </a>
+                </div>
+              </div>
+              <div className="relative">
+                {/* Carousel PRP cheveux style Apple */}
+                <div className="aspect-[4/3] bg-gradient-to-br from-brand-subtle/50 to-laser-subtle/50 rounded-2xl sm:rounded-3xl overflow-hidden hover-lift relative">
+                  <div className="carousel-container h-full">
+                    <div className="carousel-track flex h-full transition-transform duration-700 ease-in-out" style={{
+                      animation: 'carousel-slide-prp 10s infinite linear'
+                    }}>
+                      <div className="carousel-slide flex-shrink-0 w-full h-full">
+                        <img
+                          src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Techniques/PRP/prp-contre-la-chutte-cheveux-dr-baron-la-villa-esthetique-toulouse-lardenne-femme.png"
+                          alt="Traitement PRP cheveux femme - Dr Baron La Villa Esthétique"
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="carousel-slide flex-shrink-0 w-full h-full">
+                        <img
+                          src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Techniques/PRP/prp-contre-la-chutte-cheveux-dr-baron-la-villa-esthetique-toulouse-lardenne-homme.png"
+                          alt="Traitement PRP cheveux homme - Dr Baron La Villa Esthétique"
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Indicateurs discrets style Apple */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                    <div className="w-2 h-2 bg-white/60 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/30 rounded-full"></div>
+                  </div>
+                </div>
+                
+                <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-2xl shadow-xl flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-sm sm:text-lg font-bold text-brand">PRP</div>
+                    <div className="text-xs text-neutral-600">Cheveux</div>
+                  </div>
+                </div>
+                
+                {/* CSS pour l'animation du carousel PRP */}
+                <style jsx>{`
+                  @keyframes carousel-slide-prp {
+                    0% { transform: translateX(0); }
+                    45% { transform: translateX(0); }
+                    50% { transform: translateX(-100%); }
+                    95% { transform: translateX(-100%); }
+                    100% { transform: translateX(0); }
+                  }
+                  
+                  .carousel-track:hover {
+                    animation-play-state: paused;
+                  }
+                `}</style>
+              </div>
             </motion.div>
+
           </div>
         </section>
 
@@ -513,8 +689,14 @@ export default function HomePage() {
                     L'expérience La Villa Esthétique
                   </h3>
                   <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="text-2xl">🛡️</div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 flex-shrink-0">
+                        <img
+                          src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/A-lecoute-des-patients-dr-baron-la-villa-esthetique-toulouse-lardenne.png"
+                          alt="À l'écoute des patients"
+                          className="w-full h-full object-contain rounded-lg"
+                        />
+                      </div>
                       <div>
                         <h4 
                           className="font-light text-neutral-900"
@@ -525,8 +707,14 @@ export default function HomePage() {
                         <p className="text-neutral-600">Attentive à vos attentes et besoins</p>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <div className="text-2xl">💖</div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 flex-shrink-0">
+                        <img
+                          src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/sur-mesure-dr-baron-la-villa-esthetique-toulouse-lardenne.png"
+                          alt="Sur mesure"
+                          className="w-full h-full object-contain rounded-lg"
+                        />
+                      </div>
                       <div>
                         <h4 
                           className="font-light text-neutral-900"
@@ -537,8 +725,14 @@ export default function HomePage() {
                         <p className="text-neutral-600">Chaque traitement unique</p>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <div className="text-2xl">⭐</div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 flex-shrink-0">
+                        <img
+                          src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/innovations-dr-baron-la-villa-esthetique-toulouse-lardenne.png"
+                          alt="Innovation"
+                          className="w-full h-full object-contain rounded-lg"
+                        />
+                      </div>
                       <div>
                         <h4 
                           className="font-light text-neutral-900"
@@ -615,6 +809,17 @@ export default function HomePage() {
           </div>
         </section>
       </main>
+
+      {/* Délai de réflexion */}
+      <section className="py-6 bg-neutral-50 border-t border-neutral-200">
+        <div className="container">
+          <div className="text-center">
+            <p className="text-sm text-neutral-600">
+              Un délai minimum est respecté entre la consultation et le premier traitement pour certains actes.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </>

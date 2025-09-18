@@ -98,8 +98,8 @@ export default function EpilationLaserAissellesPage() {
             <div className="max-w-4xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2">
-                  <h1 className="text-4xl lg:text-5xl font-outfit font-bold text-neutral-900 mb-6">
-                    <span className="text-5xl lg:text-6xl font-bold text-blue-600 mb-6 leading-tight tracking-tight">
+                  <h1 className="apple-title-hero">
+                    <span className="text-blue-600">
                       Épilation Laser Aisselles à Toulouse
                     </span>
                   </h1>
