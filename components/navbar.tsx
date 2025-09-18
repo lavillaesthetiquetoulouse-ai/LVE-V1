@@ -198,7 +198,7 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Navigation Overlay - Style Apple Fullscreen */}
+      {/* Mobile Navigation Overlay - Style Apple Fullscreen Optimisé */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -206,55 +206,29 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="fixed inset-0 bg-white/98 backdrop-blur-2xl z-50 lg:hidden"
-            style={{ 
+            className="fixed top-16 left-0 right-0 bottom-0 bg-white/98 backdrop-blur-2xl z-40 lg:hidden"
+            style={{
               WebkitOverflowScrolling: 'touch',
               overscrollBehavior: 'contain',
-              height: '100dvh', // Utilise la hauteur dynamique du viewport sur mobile
+              height: 'calc(100dvh - 64px)', // Commence sous la navbar (64px = h-16)
             }}
           >
-            {/* Header avec logo et bouton fermer - Position plus basse pour éviter la zone de status */}
-            <div className="absolute top-0 left-0 right-0 h-20 flex items-center justify-between px-4 z-10 bg-white/95 backdrop-blur-xl border-b border-gray-100"
-              style={{ 
-                paddingTop: 'env(safe-area-inset-top, 0px)', 
-                marginTop: '8px' // Espace supplémentaire pour éviter la superposition
+            {/* Contenu principal - Optimisé pour éviter superposition navbar et navigation système */}
+            <div className="h-full flex flex-col px-4 py-6"
+              style={{
+                paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 40px)', // +40px pour éviter navigation système
               }}
             >
-              <Link 
-                href="/" 
-                className="flex items-center gap-2 font-bold text-base text-neutral-900"
-                onClick={() => setIsOpen(false)}
-              >
-                <img
-                  src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-%20black2.png"
-                  alt="Logo La villa Esthetique"
-                  className="w-6 h-6 object-contain flex-shrink-0"
-                />
-                <span className="text-sm whitespace-nowrap">
-                  {brandName}
-                </span>
-              </Link>
-              
-              <BurgerMenu isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
-            </div>
-
-            {/* Contenu principal - Ajustement de l'espace pour éviter la superposition */}
-            <div className="h-full flex flex-col items-center justify-center px-4 pt-24 pb-8"
-              style={{ 
-                paddingTop: 'calc(env(safe-area-inset-top, 0px) + 96px)', // 24 * 4 = 96px + safe area
-                paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 32px)'
-              }}
-            >
-              {/* Navigation Links - Style Apple Optimisé iPhone */}
-              <div className="w-full max-w-sm space-y-1 flex-shrink-0">
+              {/* Navigation Links - Texte réduit et espacement optimisé */}
+              <div className="w-full max-w-sm space-y-0.5 flex-shrink-0 flex-1 overflow-y-auto">
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.href}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                      delay: index * 0.06, 
-                      duration: 0.4,
+                    transition={{
+                      delay: index * 0.05,
+                      duration: 0.3,
                       ease: [0.25, 0.46, 0.45, 0.94]
                     }}
                     className="relative"
@@ -262,25 +236,25 @@ export function Navbar() {
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`group block w-full px-4 py-3 text-center transition-all duration-300 min-h-[48px] flex items-center justify-center relative overflow-hidden rounded-lg ${
+                      className={`group block w-full px-4 py-2.5 text-center transition-all duration-300 min-h-[40px] flex items-center justify-center relative overflow-hidden rounded-lg ${
                         item.isNew
-                          ? 'text-brand font-bold text-lg bg-brand/5'
+                          ? 'text-brand font-bold text-base bg-brand/5'
                           : pathname === item.href
-                          ? 'text-neutral-900 font-semibold text-lg bg-neutral-100'
-                          : 'text-neutral-700 hover:text-neutral-900 font-medium text-lg hover:bg-neutral-50 hover:scale-102'
+                          ? 'text-neutral-900 font-semibold text-base bg-neutral-100'
+                          : 'text-neutral-700 hover:text-neutral-900 font-medium text-base hover:bg-neutral-50 hover:scale-[1.02]'
                       }`}
                     >
                       {/* Effet de survol subtil */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-neutral-100/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-                      
+
                       <div className="relative flex items-center justify-center gap-2">
                         <span>{item.label}</span>
                         {item.isNew && (
-                          <motion.span 
+                          <motion.span
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
-                            transition={{ delay: index * 0.06 + 0.2, type: 'spring', stiffness: 300 }}
-                            className="bg-gradient-to-r from-brand to-laser text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg"
+                            transition={{ delay: index * 0.05 + 0.15, type: 'spring', stiffness: 300 }}
+                            className="bg-gradient-to-r from-brand to-laser text-white text-xs font-bold px-1.5 py-0.5 rounded-full shadow-lg"
                           >
                             NEW
                           </motion.span>
@@ -291,22 +265,25 @@ export function Navbar() {
                 ))}
               </div>
 
-              {/* CTA Principal - Style Apple Optimisé iPhone */}
+              {/* CTA Principal - Repositionné pour éviter la navigation système */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  delay: navItems.length * 0.06 + 0.1, 
-                  duration: 0.4,
+                transition={{
+                  delay: navItems.length * 0.05 + 0.1,
+                  duration: 0.3,
                   ease: [0.25, 0.46, 0.45, 0.94]
                 }}
-                className="mt-8 w-full max-w-sm flex-shrink-0"
+                className="mt-6 w-full max-w-sm flex-shrink-0"
+                style={{
+                  marginBottom: 'calc(env(safe-area-inset-bottom, 0px) + 16px)', // +16px pour remonter de 0,4cm environ
+                }}
               >
                 <a
                   href="https://www.doctolib.fr/medecine-morphologique-et-anti-age/toulouse/nadine-baron"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${ctaClass} w-full justify-center text-base font-semibold min-h-[50px] rounded-xl shadow-lg hover:shadow-xl transform hover:scale-102 transition-all duration-300`}
+                  className={`${ctaClass} w-full justify-center text-sm font-semibold min-h-[48px] rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300`}
                   onClick={() => {
                     setIsOpen(false);
                     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -322,18 +299,18 @@ export function Navbar() {
                   Prendre RDV sur Doctolib
                   <ArrowRight className="w-4 h-4" />
                 </a>
-                
-                {/* Contact rapide */}
-                <motion.div 
+
+                {/* Contact rapide - Repositionné et taille réduite */}
+                <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: navItems.length * 0.06 + 0.3 }}
-                  className="mt-4 text-center"
+                  transition={{ delay: navItems.length * 0.05 + 0.2 }}
+                  className="mt-3 text-center"
                 >
                   <p className="text-xs text-neutral-500 mb-1">Ou appelez-nous directement</p>
                   <a
                     href="tel:+33562140410"
-                    className="text-base text-brand font-semibold hover:text-brand-hover transition-colors"
+                    className="text-sm text-brand font-semibold hover:text-brand-hover transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     05 62 14 04 10
