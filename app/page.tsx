@@ -524,7 +524,10 @@ export default function HomePage() {
                     <img
                       src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/PRP-la-villa-esthetique-dr-baron-cehveux.png"
                       alt="Icône PRP cheveux"
-                      className="w-6 h-6 sm:w-8 sm:h-8"
+                      className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
+                      width="32"
+                      height="32"
+                      loading="lazy"
                     />
                   </div>
                   <div>

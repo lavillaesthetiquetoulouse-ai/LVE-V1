@@ -3,12 +3,9 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { Calendar, ArrowRight, Award, Users, Shield, Heart, Clock, MapPin, Phone, Mail } from 'lucide-react';
+import { aboutMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'À propos du Dr Nadine Baron | Villa Esthétique & Docteur Laser Toulouse',
-  description: 'Découvrez le Dr Nadine Baron, médecin esthétique à Toulouse Lardenne. Formation, expertise, équipements de pointe pour votre sécurité et votre beauté.',
-  keywords: 'Dr Nadine Baron, médecin esthétique, Toulouse, Lardenne, formation, expertise, équipements',
-};
+export const metadata: Metadata = aboutMetadata;
 
 const formations = [
   'Diplôme de Docteur en Médecine',

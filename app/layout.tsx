@@ -3,47 +3,23 @@ import type { Metadata } from 'next';
 import { BrandProvider } from '@/components/brand-provider';
 import { CookieBanner } from '@/components/cookie-banner';
 import { StickyCTA } from '@/components/sticky-cta';
+import { homePageMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cheery-quokka-7f67a2.netlify.app'),
-  title: 'Dr Nadine Baron - Villa Esthétique & Docteur Laser | Médecine Esthétique Toulouse',
-  description: '✨ Dr Nadine Baron vous accueille à La Villa Esthétique, votre refuge beauté à Toulouse. Expertise médicale, technologies de pointe et résultats naturels. Révélez votre beauté en toute sérénité.',
-  keywords: 'médecine esthétique, épilation laser, Toulouse, Lardenne, Dr Nadine Baron, injections, botox, acide hyaluronique, peeling',
-  robots: 'index, follow',
-  openGraph: {
-    type: 'website',
-    locale: 'fr_FR',
-    url: 'https://cheery-quokka-7f67a2.netlify.app',
-    siteName: 'La villa Esthetique & Docteur Laser',
-    title: 'Dr Nadine Baron - La Villa Esthétique Toulouse',
-    description: '✨ Dr Nadine Baron vous accueille à La Villa Esthétique, votre refuge beauté à Toulouse. Expertise médicale, technologies de pointe et résultats naturels.',
-    images: [
-      {
-        url: '/logo-villa-esthetique.png',
-        width: 1200,
-        height: 630,
-        alt: 'Logo La villa Esthetique - Dr Nadine Baron - Toulouse Lardenne',
-        type: 'image/png',
-      },
+  ...homePageMetadata,
+  icons: {
+    icon: [
+      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-64x64.png', sizes: '64x64', type: 'image/png' },
+      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-128x128.png', sizes: '128x128', type: 'image/png' },
+      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-512x512.png', sizes: '512x512', type: 'image/png' }
     ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Dr Nadine Baron - La Villa Esthétique',
-    description: '✨ Votre refuge beauté à Toulouse. Expertise médicale, technologies de pointe et résultats naturels.',
-    images: [
-      '/logo-villa-esthetique.png'
+    apple: [
+      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-180x180.png', sizes: '180x180', type: 'image/png' }
     ],
-  },
-  alternates: {
-    canonical: 'https://cheery-quokka-7f67a2.netlify.app',
-  },
-  other: {
-    'geo.region': 'FR-31',
-    'geo.placename': 'Toulouse',
-    'geo.position': '43.6047;1.4442',
-    'ICBM': '43.6047, 1.4442',
-  },
+    shortcut: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-32x32.png'
+  }
 };
 
 export default function RootLayout({
@@ -55,31 +31,67 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.youtube.com https://s.ytimg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https:; frame-src 'self' https://www.google.com https://www.doctolib.fr https://www.youtube.com https://youtube.com;" />
-        <meta httpEquiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains" />
+        <link rel="manifest" href="/manifest.json" />
+        {/* CSP de fallback - les en-têtes Netlify prennent la priorité */}
+        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.youtube.com https://s.ytimg.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https:; frame-src 'self' https://www.google.com https://www.doctolib.fr https://www.youtube.com https://youtube.com; object-src 'none'; base-uri 'self';" />
+        <meta httpEquiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload" />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta name="permissions-policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
         {/* Optimisation fonts - Preload fonts critiques */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" as="style" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" />
         
         {/* Preconnect ressources tierces */}
         <link rel="preconnect" href="https://www.youtube.com" />
         <link rel="preconnect" href="https://fbslsxzirjpyzgqbdkfe.supabase.co" />
+        <link rel="preconnect" href="https://www.doctolib.fr" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <link rel="dns-prefetch" href="https://fbslsxzirjpyzgqbdkfe.supabase.co" />
+        <link rel="dns-prefetch" href="https://www.doctolib.fr" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <link rel="dns-prefetch" href="https://www.gstatic.com" />
         
-        {/* Favicon et icônes */}
-        <link rel="icon" href="/logo-villa-esthetique.png" />
-        <link rel="apple-touch-icon" href="/logo-villa-esthetique.png" />
-        <link rel="shortcut icon" href="/logo-villa-esthetique.png" />
-        
-        {/* Métadonnées supplémentaires pour les réseaux sociaux */}
+        {/* Favicon complet pour tous les appareils */}
+        <link rel="icon" type="image/png" sizes="32x32" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-32x32.png" />
+        <link rel="icon" type="image/png" sizes="64x64" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-64x64.png" />
+        <link rel="icon" type="image/png" sizes="128x128" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-128x128.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-512x512.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-180x180.png" />
+        <link rel="shortcut icon" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-32x32.png" />
+
+        {/* Métadonnées avancées pour les réseaux sociaux */}
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
         <meta name="theme-color" content="#1d1d1f" />
+
+        {/* Métadonnées spécifiques pour WhatsApp */}
+        <meta property="whatsapp:image" content="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Social%20Media/La-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-social-media-2.png" />
+
+        {/* Métadonnées pour LinkedIn */}
+        <meta property="linkedin:image" content="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Social%20Media/La-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-social-media-1.png" />
+
+        {/* Métadonnées pour Instagram et TikTok (via Open Graph) */}
+        <meta property="og:video" content="" />
+        <meta property="og:video:type" content="video/mp4" />
+
+        {/* Métadonnées pour Telegram */}
+        <meta name="telegram:image" content="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Social%20Media/La-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-social-media-1.png" />
+        <meta name="telegram:channel" content="@lavillaesthetique" />
+
+        {/* PWA et manifest pour installation sur mobile */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="La Villa Esthétique" />
+
+        {/* Microsoft Tiles */}
+        <meta name="msapplication-TileColor" content="#1d1d1f" />
+        <meta name="msapplication-TileImage" content="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-512x512.png" />
       </head>
       <body className="antialiased">
         <a href="#main-content" className="skip-link">
@@ -101,9 +113,9 @@ export default function RootLayout({
               "name": "La Villa Esthétique",
               "alternateName": "Docteur Laser Toulouse",
               "description": "Cabinet de médecine esthétique à Toulouse dirigé par le Dr Nadine Baron. Spécialiste en injections esthétiques, épilation laser, soins anti-âge et traitements corporels.",
-              "url": "https://cheery-quokka-7f67a2.netlify.app",
-              "logo": "https://cheery-quokka-7f67a2.netlify.app/logo-villa-esthetique.png",
-              "image": "https://cheery-quokka-7f67a2.netlify.app/logo-villa-esthetique.png",
+              "url": "https://lavillaesthetique-toulouse.com",
+              "logo": "https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-black2.png",
+              "image": "https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Social%20Media/La-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-social-media-1.png",
               "telephone": "+33562140410",
               "email": "contact@lavillaesthetique.com",
               "address": {

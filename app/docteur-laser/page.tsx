@@ -5,12 +5,9 @@ import { Hero } from '@/components/hero';
 import { ActeCard } from '@/components/acte-card';
 import { FAQ } from '@/components/faq';
 import { Calendar, ArrowRight, Zap, Target, Shield, Clock, Users, Star } from 'lucide-react';
+import { doctorLaserMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Docteur Laser Toulouse | Épilation & Lasers Médicaux - Dr Nadine Baron',
-  description: 'Docteur Laser à Toulouse Lardenne. Épilation laser définitive, détatouage, lasers vasculaires. Dr Nadine Baron, équipements dernière génération.',
-  keywords: 'docteur laser, épilation laser, Toulouse, Lardenne, détatouage, lasers vasculaires, Dr Nadine Baron',
-};
+export const metadata: Metadata = doctorLaserMetadata;
 
 const epilationZones = [
   {
