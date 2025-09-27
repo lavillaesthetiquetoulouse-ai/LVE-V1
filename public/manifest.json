@@ -1,0 +1,28 @@
+{
+  "name": "La Villa Esthétique - Dr Nadine Baron",
+  "short_name": "Villa Esthétique",
+  "description": "Cabinet de médecine esthétique à Toulouse. Dr Nadine Baron - Épilation laser, injections, soins anti-âge.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1d1d1f",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["medical", "health", "beauty"],
+  "lang": "fr-FR",
+  "scope": "/",
+  "prefer_related_applications": false
+}

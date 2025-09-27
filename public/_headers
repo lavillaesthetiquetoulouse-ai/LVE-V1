@@ -1,0 +1,56 @@
+# Netlify headers pour optimiser la performance
+# Ces headers remplacent ceux de Next.js pour les sites statiques
+
+# Cache long pour les assets statiques
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache pour les polices
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache pour les images locales
+/images/*
+  Cache-Control: public, max-age=2592000
+
+# Cache pour les ressources externes (Supabase)
+https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/*
+  Cache-Control: public, max-age=31536000
+
+# Cache pour différents types de fichiers
+*.png
+  Cache-Control: public, max-age=31536000, immutable
+*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+*.webp
+  Cache-Control: public, max-age=31536000, immutable
+*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache pour les fonts
+*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+# Security headers pour toutes les pages
+/*
+  # Content Security Policy renforcée
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-eval' https://www.google.com https://www.gstatic.com https://www.youtube.com https://s.ytimg.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https:; frame-src 'self' https://www.google.com https://www.doctolib.fr https://www.youtube.com https://youtube.com; object-src 'none'; base-uri 'self'; require-trusted-types-for 'script';
+
+  # HSTS renforcé avec preload
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+  # Cross-Origin-Opener-Policy pour l'isolation
+  Cross-Origin-Opener-Policy: same-origin
+
+  # En-têtes de sécurité standards
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-XSS-Protection: 1; mode=block
+
+  # Permissions Policy restrictive
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=()
