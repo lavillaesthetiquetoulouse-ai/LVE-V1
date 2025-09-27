@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { BrandProvider } from '@/components/brand-provider';
 import { CookieBanner } from '@/components/cookie-banner';
 import { StickyCTA } from '@/components/sticky-cta';
+import { PerformanceOptimizer } from '@/components/PerformanceOptimizer';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lavillaesthetique-toulouse.com'),
@@ -41,11 +42,14 @@ export default function RootLayout({
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta name="permissions-policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
-        {/* Optimisation fonts - Preload fonts critiques */}
+        {/* Optimisation fonts - Preload fonts critiques avec font-display:swap optimisé */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" as="style" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" media="print" onLoad="this.media='all'" />
+        <noscript>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" />
+        </noscript>
         
         {/* Preconnect ressources tierces */}
         <link rel="preconnect" href="https://www.youtube.com" />
@@ -101,6 +105,7 @@ export default function RootLayout({
           Aller au contenu principal
         </a>
         <BrandProvider brand="villa">
+          <PerformanceOptimizer />
           {children}
           <StickyCTA />
           <CookieBanner />

@@ -14,14 +14,27 @@ const nextConfig = {
 
   // Configuration d'images optimisée pour Supabase
   images: {
-    domains: [
-      'fbslsxzirjpyzgqbdkfe.supabase.co',
-      'images.unsplash.com'
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'fbslsxzirjpyzgqbdkfe.supabase.co',
+        port: '',
+        pathname: '/storage/v1/object/public/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+      }
     ],
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     unoptimized: false,
+    minimumCacheTTL: 31536000, // 1 an
   },
 
   // Optimisation expérimentale
@@ -30,7 +43,7 @@ const nextConfig = {
     serverComponentsExternalPackages: ['@supabase/supabase-js'],
   },
 
-  // Headers de sécurité
+  // Headers de sécurité et performance
   async headers() {
     return [
       {
@@ -47,6 +60,26 @@ const nextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
+          },
+        ],
+      },
+      // Cache optimisé pour les images Supabase
+      {
+        source: '/images/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache pour les assets statiques
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

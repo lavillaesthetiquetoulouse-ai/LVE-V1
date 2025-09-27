@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Breadcrumbs } from '@/components/breadcrumbs';
+import { OptimizedImage } from '@/components/OptimizedImage';
 import { Calendar, ArrowRight, Zap, Droplets, Sparkles, Heart, Shield, Star, Scissors, Eye, Sun, Users, Clock, CheckCircle, Target, Thermometer, Search, Filter, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -28,7 +29,7 @@ const soinsData: Record<string, SoinData> = {
   'injection-radiesse': {
     title: 'Injection de Radiesse',
     description: 'Inducteurs de collagène pour un rajeunissement naturel et durable',
-    icon: <img src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/injection%20(1).png" alt="Injection Radiesse" className="w-6 h-6" />,
+    icon: <OptimizedImage src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/injection%20(1).png" alt="Injection Radiesse" width={24} height={24} className="w-6 h-6" />,
     color: 'from-purple-500 to-pink-500',
     details: [
       'Stimulation naturelle de la production de collagène',

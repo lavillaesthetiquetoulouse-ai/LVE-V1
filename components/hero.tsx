@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, ArrowRight, Play } from 'lucide-react';
 import { useBrand } from './brand-provider';
+import { YouTubeFacade } from './YouTubeFacade';
 
 interface HeroProps {
   title: string;
@@ -14,18 +15,16 @@ interface HeroProps {
   secondaryButtonHref?: string;
 }
 
-export function Hero({ 
-  title, 
-  subtitle, 
+export function Hero({
+  title,
+  subtitle,
   description,
   showSecondaryButton = false,
   secondaryButtonText = "En savoir plus",
   secondaryButtonHref = "/a-propos"
 }: HeroProps) {
   const { brand } = useBrand();
-  const [videoLoaded, setVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   
   const ctaClass = brand === 'villa' ? 'btn-primary-villa' : 'btn-primary-laser';
 
@@ -40,29 +39,6 @@ export function Hero({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Lazy load vidéo après interaction ou délai pour améliorer LCP
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShouldLoadVideo(true);
-    }, 2000); // Délai 2s pour permettre LCP optimal
-
-    const handleInteraction = () => {
-      setShouldLoadVideo(true);
-      clearTimeout(timer);
-    };
-
-    // Déclenche le chargement sur interaction
-    window.addEventListener('scroll', handleInteraction, { once: true, passive: true });
-    window.addEventListener('click', handleInteraction, { once: true });
-    window.addEventListener('touchstart', handleInteraction, { once: true, passive: true });
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('scroll', handleInteraction);
-      window.removeEventListener('click', handleInteraction);
-      window.removeEventListener('touchstart', handleInteraction);
-    };
-  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -200,44 +176,13 @@ export function Hero({
             className="relative order-1 lg:order-2"
           >
             <div className="relative w-full max-w-2xl mx-auto lg:max-w-none">
-              {/* Container avec aspect-ratio responsive */}
-              <div className="relative aspect-video bg-gradient-to-br from-brand-subtle/50 to-laser-subtle/50 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/20 backdrop-blur-sm">
-                {!shouldLoadVideo ? (
-                  /* Placeholder optimisé pour LCP */
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-subtle to-laser-subtle flex items-center justify-center cursor-pointer"
-                       onClick={() => setShouldLoadVideo(true)}>
-                    <div className="text-center text-neutral-700">
-                      <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center mb-4 mx-auto shadow-lg">
-                        <Play className="w-8 h-8 text-brand ml-1" />
-                      </div>
-                      <div className="text-sm font-medium">Découvrir la Villa Esthétique</div>
-                      <div className="text-xs text-neutral-500 mt-1">Cliquez pour charger la vidéo</div>
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    {!videoLoaded && (
-                      <div className="absolute inset-0 bg-gradient-to-br from-brand-subtle to-laser-subtle flex items-center justify-center z-10">
-                        <div className="text-center text-neutral-700">
-                          <div className="animate-spin w-8 h-8 border-2 border-brand border-t-transparent rounded-full mx-auto mb-4"></div>
-                          <div className="text-sm font-medium">Chargement de la vidéo...</div>
-                        </div>
-                      </div>
-                    )}
-                    
-                    {/* Iframe YouTube responsive - Chargement différé */}
-                    <iframe
-                      src="https://www.youtube.com/embed/f7sHblqQ-W8?enablejsapi=1&origin=https://cheery-quokka-7f67a2.netlify.app&autoplay=0&mute=0&controls=1&rel=0&modestbranding=1&showinfo=0&fs=1&cc_load_policy=0&iv_load_policy=3&playsinline=1"
-                      title="Découvrez La Villa Esthétique - Dr Nadine Baron"
-                      className="absolute inset-0 w-full h-full border-0"
-                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-                      allowFullScreen
-                      loading="lazy"
-                      onLoad={() => setVideoLoaded(true)}
-                      onError={() => setVideoLoaded(true)}
-                    />
-                  </>
-                )}
+              {/* Façade YouTube optimisée */}
+              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/20 backdrop-blur-sm">
+                <YouTubeFacade
+                  videoId="f7sHblqQ-W8"
+                  title="Découvrez La Villa Esthétique - Dr Nadine Baron"
+                  className="w-full"
+                />
               </div>
               
               {/* Éléments décoratifs adaptatifs */}
