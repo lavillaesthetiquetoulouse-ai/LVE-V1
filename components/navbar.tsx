@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Calendar, ArrowRight, Sparkles, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useBrand } from './brand-provider';
+import { OptimizedImage } from './OptimizedImage';
 
 const navItems = [
   { href: '/', label: 'Accueil' },
@@ -116,14 +117,17 @@ export function Navbar() {
         <div className="container">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo - Responsive */}
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="flex items-center gap-2 sm:gap-3 font-bold text-base sm:text-lg text-neutral-900 hover:scale-105 transition-all duration-300"
             >
-              <img
-                src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-%20black2.png"
-                alt="Logo La villa Esthetique"
+              <OptimizedImage
+                src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/favicon-32.png"
+                alt="Logo La Villa Esthétique"
+                width={32}
+                height={32}
                 className="w-6 h-6 sm:w-7 sm:h-7 object-contain flex-shrink-0"
+                priority
               />
               <span className="hidden xs:block sm:whitespace-nowrap text-sm sm:text-base">
                 {brandName}

@@ -13,16 +13,44 @@ export const metadata: Metadata = {
   robots: 'index, follow',
   icons: {
     icon: [
-      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-64x64.png', sizes: '64x64', type: 'image/png' },
-      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-128x128.png', sizes: '128x128', type: 'image/png' },
-      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-192x192.png', sizes: '192x192', type: 'image/png' },
-      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-512x512.png', sizes: '512x512', type: 'image/png' }
+      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/favicon-16.png', sizes: '16x16', type: 'image/png' },
+      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/favicon-48.png', sizes: '48x48', type: 'image/png' },
+      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' }
     ],
     apple: [
-      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-180x180.png', sizes: '180x180', type: 'image/png' }
+      { url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
     ],
-    shortcut: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-32x32.png'
+    shortcut: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/favicon.ico'
+  },
+  openGraph: {
+    title: 'Dr Nadine Baron - Villa Esthétique & Docteur Laser | Médecine Esthétique Toulouse',
+    description: '✨ Dr Nadine Baron vous accueille à La Villa Esthétique, votre refuge beauté à Toulouse. Expertise médicale, technologies de pointe et résultats naturels.',
+    url: 'https://lavillaesthetique-toulouse.com',
+    siteName: 'La Villa Esthétique',
+    images: [
+      {
+        url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'La Villa Esthétique - Dr Nadine Baron - Médecine Esthétique Toulouse',
+      },
+      {
+        url: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/og-image-square.jpg',
+        width: 400,
+        height: 400,
+        alt: 'La Villa Esthétique - Dr Nadine Baron',
+      }
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dr Nadine Baron - Villa Esthétique & Docteur Laser | Médecine Esthétique Toulouse',
+    description: '✨ Dr Nadine Baron vous accueille à La Villa Esthétique, votre refuge beauté à Toulouse. Expertise médicale, technologies de pointe et résultats naturels.',
+    images: ['https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/og-image.jpg'],
   }
 };
 
@@ -62,13 +90,14 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.gstatic.com" />
         
         {/* Favicon complet pour tous les appareils */}
-        <link rel="icon" type="image/png" sizes="32x32" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-32x32.png" />
-        <link rel="icon" type="image/png" sizes="64x64" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-64x64.png" />
-        <link rel="icon" type="image/png" sizes="128x128" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-128x128.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-512x512.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-180x180.png" />
-        <link rel="shortcut icon" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-32x32.png" />
+        <link rel="icon" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/favicon-16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/favicon-32.png" />
+        <link rel="icon" type="image/png" sizes="48x48" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/favicon-48.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/android-chrome-512x512.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/apple-touch-icon.png" />
+        <link rel="shortcut icon" href="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/favicon.ico" />
 
         {/* Métadonnées avancées pour les réseaux sociaux */}
         <meta property="og:image:width" content="1200" />
@@ -98,7 +127,7 @@ export default function RootLayout({
 
         {/* Microsoft Tiles */}
         <meta name="msapplication-TileColor" content="#1d1d1f" />
-        <meta name="msapplication-TileImage" content="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-esthetique-512x512.png" />
+        <meta name="msapplication-TileImage" content="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/mstile-150x150.png" />
       </head>
       <body className="antialiased">
         <a href="#main-content" className="skip-link">

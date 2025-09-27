@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube, Linkedin, ChevronDown, Calendar } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { OptimizedImage } from './OptimizedImage';
 
 // Composant Accordion pour mobile
 function AccordionSection({ 
@@ -68,9 +69,11 @@ export function Footer() {
           <div>
             <h3 className="font-outfit font-semibold text-lg mb-4">
               <div className="flex items-center gap-3">
-                <img
-                  src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-%20black2.png"
-                  alt="Logo La villa Esthetique"
+                <OptimizedImage
+                  src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/favicon-32.png"
+                  alt="Logo La Villa Esthétique"
+                  width={24}
+                  height={24}
                   className="w-6 h-6 object-contain flex-shrink-0"
                 />
                 La villa Esthetique
@@ -230,9 +233,11 @@ export function Footer() {
           {/* Logo et info principale */}
           <div className="mb-6 text-center">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <img
-                src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-%20black2.png"
-                alt="Logo La villa Esthetique"
+              <OptimizedImage
+                src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/favicon-32.png"
+                alt="Logo La Villa Esthétique"
+                width={24}
+                height={24}
                 className="w-6 h-6 object-contain flex-shrink-0"
               />
               <span className="font-outfit font-semibold text-lg text-white">
