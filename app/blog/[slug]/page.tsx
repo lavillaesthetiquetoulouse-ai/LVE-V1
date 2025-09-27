@@ -221,7 +221,11 @@ function BlogPostContent({ post }: { post: BlogPost }) {
 // Générer les paramètres statiques pour tous les articles
 export async function generateStaticParams() {
   try {
+    console.log('🔧 Generating static params...')
     const posts = await getBlogPosts()
+    console.log('📋 Found posts for static generation:', posts.length)
+    console.log('🔗 Generated slugs:', posts.map(p => p.slug))
+
     return posts.map((post) => ({
       slug: post.slug,
     }))

@@ -99,19 +99,60 @@ export async function getBlogPosts(category?: string) {
 
 // Fonction pour récupérer un article par slug
 export async function getBlogPostBySlug(slug: string) {
-  const { data, error } = await supabase
+  console.log('🔍 Searching for blog post with slug:', slug)
+
+  // Récupérer tous les articles publiés
+  const { data: allPosts, error: allError } = await supabase
     .from('blog_posts')
     .select('*')
-    .eq('slug', slug)
     .eq('published', true)
-    .single()
+    .order('published_at', { ascending: false })
 
-  if (error) {
-    console.error('Error fetching blog post:', error)
+  console.log('📊 ALL published posts:', allPosts?.length)
+  console.log('🔗 Available slugs in DB:', allPosts?.map(p => p.slug))
+
+  if (!allPosts) {
+    console.log('❌ No posts retrieved')
     return null
   }
 
-  return data
+  // Test 1: Correspondance exacte
+  const exactMatch = allPosts.find(post => post.slug === slug)
+  if (exactMatch) {
+    console.log('✅ Found exact match')
+    return exactMatch
+  }
+
+  // Test 2: Décodage URL simple
+  const decodedSlug = decodeURIComponent(slug)
+  console.log('🔄 Trying decoded slug:', decodedSlug)
+  const decodedMatch = allPosts.find(post => post.slug === decodedSlug)
+  if (decodedMatch) {
+    console.log('✅ Found decoded match')
+    return decodedMatch
+  }
+
+  // Test 3: Recherche flexible - normaliser les deux côtés
+  const normalizedSlug = slug.replace(/%20/g, ' ').replace(/%3F/g, '?').replace(/%C3%A9/g, 'é').replace(/%E2%80%99/g, "'")
+  console.log('🔧 Trying normalized slug:', normalizedSlug)
+  const normalizedMatch = allPosts.find(post => post.slug === normalizedSlug)
+  if (normalizedMatch) {
+    console.log('✅ Found normalized match')
+    return normalizedMatch
+  }
+
+  // Test 4: Recherche par titre (fallback)
+  const titleMatch = allPosts.find(post =>
+    post.title.toLowerCase().includes(decodedSlug.toLowerCase()) ||
+    decodedSlug.toLowerCase().includes(post.title.toLowerCase())
+  )
+  if (titleMatch) {
+    console.log('✅ Found title match')
+    return titleMatch
+  }
+
+  console.log('❌ No article found with any method')
+  return null
 }
 
 // Fonction pour récupérer les catégories
