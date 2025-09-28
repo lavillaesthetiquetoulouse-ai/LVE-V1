@@ -128,12 +128,11 @@ function BlogPostContent({ post }: { post: BlogPost }) {
       {post.image_url && (
         <div className="max-w-4xl mx-auto px-4 py-8">
           <div className="relative w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-lg">
-            <Image
+            <img
               src={post.image_url}
               alt={post.title}
-              fill
-              className="object-cover"
-              priority
+              className="w-full h-full object-cover"
+              loading="eager"
             />
           </div>
         </div>
