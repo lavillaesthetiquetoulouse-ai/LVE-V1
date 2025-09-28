@@ -188,7 +188,7 @@ export function Footer() {
               </h4>
               <div className="flex items-center gap-3">
                 <a
-                  href="https://www.facebook.com/docteurnadinebaron/?locale=fr_FR"
+                  href="https://www.facebook.com/lavillaesthetiquetoulouse/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-neutral-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
@@ -363,7 +363,7 @@ export function Footer() {
               </h4>
               <div className="flex items-center justify-center gap-4">
                 <a
-                  href="https://www.facebook.com/docteurnadinebaron/?locale=fr_FR"
+                  href="https://www.facebook.com/lavillaesthetiquetoulouse/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-neutral-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
