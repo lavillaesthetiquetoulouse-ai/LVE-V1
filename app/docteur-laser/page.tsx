@@ -76,7 +76,7 @@ const autresLasers = [
     duration: '15-45 min',
     priceFrom: '120€',
     rating: 4,
-    href: '/actes/detatouage-laser',
+    href: '/blog/precautions-avant-et-apres-detatouage-laser',
     icon: <Star className="w-6 h-6" />,
   },
   {
