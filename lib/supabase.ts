@@ -75,6 +75,21 @@ export interface BlogPost {
   updated_at: string
 }
 
+// Fonction pour optimiser l'URL d'image (convertir .png en .webp)
+function optimizeImageUrl(imageUrl?: string): string | undefined {
+  if (!imageUrl) return imageUrl
+
+  // Si l'URL contient déjà .webp, on la garde
+  if (imageUrl.includes('.webp')) return imageUrl
+
+  // Si c'est une image du bucket Supabase et qu'elle se termine par .png, on essaie .webp
+  if (imageUrl.includes('fbslsxzirjpyzgqbdkfe.supabase.co') && imageUrl.endsWith('.png')) {
+    return imageUrl.replace('.png', '.webp')
+  }
+
+  return imageUrl
+}
+
 // Fonction pour récupérer tous les articles
 export async function getBlogPosts(category?: string) {
   let query = supabase
@@ -94,7 +109,13 @@ export async function getBlogPosts(category?: string) {
     return []
   }
 
-  return data || []
+  // Optimiser les URLs d'images pour utiliser WebP
+  const optimizedData = data?.map(post => ({
+    ...post,
+    image_url: optimizeImageUrl(post.image_url)
+  }))
+
+  return optimizedData || []
 }
 
 // Fonction pour récupérer un article par slug
@@ -120,7 +141,10 @@ export async function getBlogPostBySlug(slug: string) {
   const exactMatch = allPosts.find(post => post.slug === slug)
   if (exactMatch) {
     console.log('✅ Found exact match')
-    return exactMatch
+    return {
+      ...exactMatch,
+      image_url: optimizeImageUrl(exactMatch.image_url)
+    }
   }
 
   // Test 2: Décodage URL simple
@@ -129,7 +153,10 @@ export async function getBlogPostBySlug(slug: string) {
   const decodedMatch = allPosts.find(post => post.slug === decodedSlug)
   if (decodedMatch) {
     console.log('✅ Found decoded match')
-    return decodedMatch
+    return {
+      ...decodedMatch,
+      image_url: optimizeImageUrl(decodedMatch.image_url)
+    }
   }
 
   // Test 3: Recherche flexible - normaliser les deux côtés
@@ -138,7 +165,10 @@ export async function getBlogPostBySlug(slug: string) {
   const normalizedMatch = allPosts.find(post => post.slug === normalizedSlug)
   if (normalizedMatch) {
     console.log('✅ Found normalized match')
-    return normalizedMatch
+    return {
+      ...normalizedMatch,
+      image_url: optimizeImageUrl(normalizedMatch.image_url)
+    }
   }
 
   // Test 4: Recherche par titre (fallback)
@@ -148,7 +178,10 @@ export async function getBlogPostBySlug(slug: string) {
   )
   if (titleMatch) {
     console.log('✅ Found title match')
-    return titleMatch
+    return {
+      ...titleMatch,
+      image_url: optimizeImageUrl(titleMatch.image_url)
+    }
   }
 
   console.log('❌ No article found with any method')
