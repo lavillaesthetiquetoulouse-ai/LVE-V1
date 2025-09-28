@@ -414,7 +414,7 @@ export default function ContactPage() {
                   </div>
                   <div className="text-center">
                     <h4 className="font-medium text-neutral-900 mb-1">🚌 En transport</h4>
-                    <p className="text-neutral-600">Arrêt de bus à 200m</p>
+                    <p className="text-neutral-600">Arrêt de bus à 5m</p>
                   </div>
                   <div className="text-center">
                     <h4 className="font-medium text-neutral-900 mb-1">♿ Accessibilité</h4>
