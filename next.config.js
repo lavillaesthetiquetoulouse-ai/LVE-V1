@@ -12,7 +12,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
-  // Configuration d'images optimisée pour Supabase
+  // Configuration d'images optimisée pour Netlify
   images: {
     remotePatterns: [
       {
