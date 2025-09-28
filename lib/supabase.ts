@@ -75,16 +75,14 @@ export interface BlogPost {
   updated_at: string
 }
 
-// Fonction pour optimiser l'URL d'image (convertir .png en .webp)
+// Fonction pour convertir les URLs Supabase vers les images locales Netlify
 function optimizeImageUrl(imageUrl?: string): string | undefined {
   if (!imageUrl) return imageUrl
 
-  // Si l'URL contient déjà .webp, on la garde
-  if (imageUrl.includes('.webp')) return imageUrl
-
-  // Si c'est une image du bucket Supabase et qu'elle se termine par .png, on essaie .webp
-  if (imageUrl.includes('fbslsxzirjpyzgqbdkfe.supabase.co') && imageUrl.endsWith('.png')) {
-    return imageUrl.replace('.png', '.webp')
+  // Si c'est une image du bucket Supabase, on la remplace par la version locale
+  if (imageUrl.includes('fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Blog%20images/')) {
+    const filename = imageUrl.split('/').pop()
+    return `/images/blog/${filename}`
   }
 
   return imageUrl
