@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     url: 'https://lavillaesthetique-toulouse.com/blog',
-    siteName: 'Villa Esthétique & Docteur Laser',
+    siteName: 'Villa Esthétique & Laser pas cher',
     title: 'Blog Médecine Esthétique - Conseils Expert Dr Nadine Baron',
     description: 'Articles d\'expert en médecine esthétique : épilation laser, injections, soins anti-âge. Conseils scientifiques du Dr Nadine Baron à Toulouse.',
     images: [

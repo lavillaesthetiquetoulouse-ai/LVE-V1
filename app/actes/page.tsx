@@ -528,7 +528,7 @@ export default function SoinsPage() {
         <section className="py-16">
           <div className="container">
             <div className="max-w-7xl mx-auto">
-              {/* Section Docteur Laser - Nouveauté */}
+              {/* Section Laser pas cher - Nouveauté */}
               {activeCategory === 'tous' && !searchTerm && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -546,11 +546,11 @@ export default function SoinsPage() {
                       <div>
                         <div className="flex items-center gap-4 mb-6">
                           <div className="w-16 h-16 bg-gradient-to-br from-brand to-laser rounded-2xl flex items-center justify-center shadow-lg">
-                            <img src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/medecin.png" alt="Docteur Laser" className="w-8 h-8" />
+                            <img src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/medecin.png" alt="Laser pas cher" className="w-8 h-8" />
                           </div>
                           <div>
                             <h3 className="text-3xl font-outfit font-bold bg-gradient-to-r from-brand to-laser bg-clip-text text-transparent">
-                              Docteur Laser
+                              Laser pas cher
                             </h3>
                             <p className="text-sm text-neutral-600 font-medium">
                               Notre nouveau cabinet spécialisé
@@ -587,8 +587,8 @@ export default function SoinsPage() {
                           href="/docteur-laser"
                           className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-brand to-laser text-white rounded-full font-semibold hover:from-brand-hover hover:to-laser-hover transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                         >
-                          <img src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/medecin.png" alt="Docteur Laser" className="w-5 h-5" />
-                          Découvrir Docteur Laser
+                          <img src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/icones%20medicales/medecin.png" alt="Laser pas cher" className="w-5 h-5" />
+                          Découvrir Laser pas cher
                           <ArrowRight className="w-5 h-5" />
                         </a>
                       </div>
@@ -597,7 +597,7 @@ export default function SoinsPage() {
                         <div className="aspect-[4/3] bg-gradient-to-br from-brand-subtle/50 to-laser-subtle/50 rounded-2xl overflow-hidden shadow-xl">
                           <img
                             src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Docteur%20Laser.png"
-                            alt="Cabinet Docteur Laser - Équipements de pointe"
+                            alt="Cabinet Laser pas cher - Équipements de pointe"
                             className="w-full h-full object-cover"
                           />
                         </div>

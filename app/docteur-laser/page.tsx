@@ -7,9 +7,9 @@ import { FAQ } from '@/components/faq';
 import { Calendar, ArrowRight, Zap, Target, Shield, Clock, Users, Star } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Docteur Laser Toulouse | Épilation & Lasers Médicaux - Dr Nadine Baron',
-  description: 'Docteur Laser à Toulouse Lardenne. Épilation laser définitive, détatouage, lasers vasculaires. Dr Nadine Baron, équipements dernière génération.',
-  keywords: 'docteur laser, épilation laser, Toulouse, Lardenne, détatouage, lasers vasculaires, Dr Nadine Baron'
+  title: 'Laser pas cher Toulouse | Épilation & Lasers Médicaux - Dr Nadine Baron',
+  description: 'Laser pas cher à Toulouse Lardenne. Épilation laser définitive, détatouage, lasers vasculaires. Dr Nadine Baron, équipements dernière génération.',
+  keywords: 'laser pas cher, épilation laser, Toulouse, Lardenne, détatouage, lasers vasculaires, Dr Nadine Baron'
 };
 
 const epilationZones = [
@@ -126,13 +126,13 @@ export default function DocteurLaserPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'MedicalWebPage',
-            name: 'Docteur Laser Toulouse - Épilation et Lasers Médicaux',
+            name: 'Laser pas cher Toulouse - Épilation et Lasers Médicaux',
             description: 'Spécialiste épilation laser et traitements laser médicaux à Toulouse. Dr Nadine Baron.',
             url: 'https://villa-esthetique-toulouse.fr/docteur-laser',
             mainEntity: {
               '@type': 'MedicalBusiness',
-              name: 'Docteur Laser',
-              alternateName: 'La villa Esthetique - Docteur Laser',
+              name: 'Laser pas cher',
+              alternateName: 'La villa Esthetique - Laser pas cher',
               description: 'Spécialiste épilation laser et traitements laser médicaux',
               medicalSpecialty: 'Laser Medicine',
               physician: {
@@ -148,7 +148,7 @@ export default function DocteurLaserPage() {
       <Navbar />
       
       <main>
-        {/* Hero Section Docteur Laser */}
+        {/* Hero Section Laser pas cher */}
         <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-gradient-to-br from-white via-brand-subtle/20 to-laser-subtle/30">
           <div className="container relative">
             {/* Titre centré */}
@@ -158,7 +158,7 @@ export default function DocteurLaserPage() {
                   Bienvenue dans notre nouveau cabinet
                 </span>
                 <span className="bg-gradient-to-r from-neutral-900 via-brand to-laser bg-clip-text text-transparent">
-                  Docteur Laser
+                  Laser pas cher
                 </span>
               </h1>
             </div>
@@ -195,7 +195,7 @@ export default function DocteurLaserPage() {
                 <div className="w-full rounded-2xl overflow-hidden shadow-lg border-2 border-gradient-to-r from-brand/40 to-laser/40 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-gradient-to-br from-brand/5 to-laser/5">
                   <img
                     src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Docteur%20Laser.png"
-                    alt="Cabinet Docteur Laser - Équipement d'épilation laser"
+                    alt="Cabinet Laser pas cher - Équipement d'épilation laser"
                     className="w-full h-auto object-contain"
                   />
                 </div>
@@ -226,12 +226,12 @@ export default function DocteurLaserPage() {
           </div>
         </section>
 
-        {/* Pourquoi Docteur Laser */}
+        {/* Pourquoi Laser pas cher */}
         <section className="py-24 bg-gradient-to-br from-neutral-50 to-brand-subtle/10">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-outfit font-light bg-gradient-to-r from-neutral-900 to-brand bg-clip-text text-transparent mb-6 tracking-tight">
-                Pourquoi choisir Docteur Laser ?
+                Pourquoi choisir Laser pas cher ?
               </h2>
               <p className="text-lg text-neutral-500 leading-relaxed font-light max-w-2xl mx-auto">
                 Une expertise reconnue, des équipements de dernière génération, un suivi personnalisé.

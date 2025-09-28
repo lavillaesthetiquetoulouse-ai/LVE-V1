@@ -134,7 +134,7 @@ export function Footer() {
                 Nos soins
               </Link>
               <Link href="/docteur-laser" className="block text-neutral-300 hover:text-white transition-colors">
-                Docteur Laser
+                Laser pas cher
               </Link>
               <Link href="/blog" className="block text-neutral-300 hover:text-white transition-colors">
                 Blog
@@ -307,7 +307,7 @@ export function Footer() {
                   Nos soins
                 </Link>
                 <Link href="/docteur-laser" className="block text-neutral-300 hover:text-white transition-colors py-1">
-                  Docteur Laser
+                  Laser pas cher
                 </Link>
                 <Link href="/blog" className="block text-neutral-300 hover:text-white transition-colors py-1">
                   Blog
@@ -407,7 +407,7 @@ export function Footer() {
         <div className="border-t border-neutral-700 mt-8 sm:mt-12 pt-6 sm:pt-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div className="text-xs sm:text-sm text-neutral-400 text-center lg:text-left">
-              © 2024 La villa Esthetique & Docteur Laser - Dr Nadine Baron. Tous droits réservés.
+              © 2024 La villa Esthetique & Laser pas cher - Dr Nadine Baron. Tous droits réservés.
             </div>
             <div className="text-xs text-neutral-500 max-w-md text-center lg:text-right">
               <strong>Avertissement médical :</strong> Les informations présentes sur ce site 

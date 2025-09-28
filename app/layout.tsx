@@ -7,7 +7,7 @@ import { PerformanceOptimizer } from '@/components/PerformanceOptimizer';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lavillaesthetique-toulouse.com'),
-  title: 'Dr Nadine Baron - Villa Esthétique & Docteur Laser | Médecine Esthétique Toulouse',
+  title: 'Dr Nadine Baron - Villa Esthétique & Laser pas cher | Médecine Esthétique Toulouse',
   description: '✨ Dr Nadine Baron vous accueille à La Villa Esthétique, votre refuge beauté à Toulouse. Expertise médicale, technologies de pointe et résultats naturels. Révélez votre beauté en toute sérénité.',
   keywords: 'médecine esthétique, épilation laser, Toulouse, Lardenne, Dr Nadine Baron, injections, botox, acide hyaluronique, peeling',
   robots: 'index, follow',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     shortcut: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/favicon.ico'
   },
   openGraph: {
-    title: 'Dr Nadine Baron - Villa Esthétique & Docteur Laser | Médecine Esthétique Toulouse',
+    title: 'Dr Nadine Baron - Villa Esthétique & Laser pas cher | Médecine Esthétique Toulouse',
     description: '✨ Dr Nadine Baron vous accueille à La Villa Esthétique, votre refuge beauté à Toulouse. Expertise médicale, technologies de pointe et résultats naturels.',
     url: 'https://lavillaesthetique-toulouse.com',
     siteName: 'La Villa Esthétique',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dr Nadine Baron - Villa Esthétique & Docteur Laser | Médecine Esthétique Toulouse',
+    title: 'Dr Nadine Baron - Villa Esthétique & Laser pas cher | Médecine Esthétique Toulouse',
     description: '✨ Dr Nadine Baron vous accueille à La Villa Esthétique, votre refuge beauté à Toulouse. Expertise médicale, technologies de pointe et résultats naturels.',
     images: ['https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Favicon/og-image.jpg'],
   }
@@ -148,7 +148,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "MedicalBusiness",
               "name": "La Villa Esthétique",
-              "alternateName": "Docteur Laser Toulouse",
+              "alternateName": "Laser pas cher Toulouse",
               "description": "Cabinet de médecine esthétique à Toulouse dirigé par le Dr Nadine Baron. Spécialiste en injections esthétiques, épilation laser, soins anti-âge et traitements corporels.",
               "url": "https://lavillaesthetique-toulouse.com",
               "logo": "https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-black2.png",

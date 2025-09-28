@@ -137,13 +137,13 @@ export default function HomePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'MedicalWebPage',
-            name: 'Villa Esthétique & Docteur Laser - Dr Nadine Baron',
+            name: 'Villa Esthétique & Laser pas cher - Dr Nadine Baron',
             description: 'Cabinet de médecine esthétique à Toulouse, quartier Lardenne. Épilation laser, injections anti-âge, peelings médicaux.',
             url: 'https://villa-esthetique-toulouse.fr',
             mainEntity: {
               '@type': 'MedicalClinic',
               name: 'La villa Esthetique',
-              alternateName: 'Docteur Laser',
+              alternateName: 'Laser pas cher',
               description: 'Cabinet de médecine esthétique',
               address: {
                 '@type': 'PostalAddress',
@@ -417,7 +417,7 @@ export default function HomePage() {
                       <div className="carousel-slide flex-shrink-0 w-full h-full">
                         <img
                           src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Le%20cabinet/SALLE%20CLARITY%202%20DR%20LASER.jpg"
-                          alt="Salle Clarity 2 Docteur Laser"
+                          alt="Salle Clarity 2 Laser pas cher"
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -445,7 +445,7 @@ export default function HomePage() {
                       <div className="carousel-slide flex-shrink-0 w-full h-full">
                         <img
                           src="https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Le%20cabinet/SALLE%20DETATOUAGE%20DOCTEUR%20LASER.jpg"
-                          alt="Salle Détatouage Docteur Laser"
+                          alt="Salle Détatouage Laser pas cher"
                           className="w-full h-full object-cover"
                         />
                       </div>

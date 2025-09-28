@@ -113,8 +113,8 @@ export default async function BlogPage() {
       {
         '@type': 'MedicalOrganization',
         '@id': 'https://lavillaesthetique-toulouse.com#organization',
-        name: 'La Villa Esthétique & Docteur Laser',
-        alternateName: ['Villa Esthétique', 'Docteur Laser'],
+        name: 'La Villa Esthétique & Laser pas cher',
+        alternateName: ['Villa Esthétique', 'Laser pas cher'],
         description: 'Cabinet de médecine esthétique à Toulouse spécialisé en épilation laser, injections anti-âge, soins du visage et dermatologie esthétique.',
         url: 'https://lavillaesthetique-toulouse.com',
         logo: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Logo%20du%20cab/Logo-la-villa-esthetique-toulouse-lardenne-dr-baron-medecin-%20black2.png',
@@ -156,7 +156,7 @@ export default async function BlogPage() {
         '@type': 'WebSite',
         '@id': 'https://lavillaesthetique-toulouse.com#website',
         url: 'https://lavillaesthetique-toulouse.com',
-        name: 'Villa Esthétique & Docteur Laser',
+        name: 'Villa Esthétique & Laser pas cher',
         description: 'Cabinet de médecine esthétique à Toulouse - Dr Nadine Baron',
         publisher: {
           '@id': 'https://lavillaesthetique-toulouse.com#organization'

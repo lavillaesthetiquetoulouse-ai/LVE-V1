@@ -6,7 +6,7 @@ import { GoogleReviews } from '@/components/google-reviews';
 import { ExternalLink, Award, Newspaper, Mic, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'On parle de nous | Villa Esthétique & Docteur Laser Toulouse',
+  title: 'On parle de nous | Villa Esthétique & Laser pas cher Toulouse',
   description: 'Découvrez ce que les médias et nos patients disent de Villa Esthétique et du Dr Nadine Baron. Témoignages, articles de presse et reconnaissance professionnelle.',
   keywords: 'Villa Esthétique, Dr Nadine Baron, témoignages, avis patients, presse, médias, reconnaissance',
 };

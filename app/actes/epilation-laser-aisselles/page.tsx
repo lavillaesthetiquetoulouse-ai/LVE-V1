@@ -484,7 +484,7 @@ export default function EpilationLaserAissellesPage() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <a href="/docteur-laser" className="card hover:shadow-md transition-shadow">
-                  <h3 className="font-semibold text-neutral-900 mb-2">Docteur Laser</h3>
+                  <h3 className="font-semibold text-neutral-900 mb-2">Laser pas cher</h3>
                   <p className="text-sm text-neutral-600">Découvrez toute notre gamme laser</p>
                 </a>
                 <a href="/tarifs" className="card hover:shadow-md transition-shadow">

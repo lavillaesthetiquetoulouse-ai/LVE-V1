@@ -70,19 +70,19 @@ const galleryImages = [
   },
   {
     src: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Le%20cabinet/SALLE%20CLARITY%202%20DR%20LASER.jpg',
-    alt: 'Salle Clarity 2 - Docteur Laser',
+    alt: 'Salle Clarity 2 - Laser pas cher',
     title: 'Salle Clarity 2',
     description: 'Salle équipée du laser Clarity pour épilation et traitements'
   },
   {
     src: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Le%20cabinet/salle%20d%20attente%20dr%20laser%202.jpg',
-    alt: 'Salle d\'attente Docteur Laser',
-    title: 'Attente Docteur Laser',
-    description: 'Salle d\'attente dédiée aux patients Docteur Laser'
+    alt: 'Salle d\'attente Laser pas cher',
+    title: 'Attente Laser pas cher',
+    description: 'Salle d\'attente dédiée aux patients Laser pas cher'
   },
   {
     src: 'https://fbslsxzirjpyzgqbdkfe.supabase.co/storage/v1/object/public/Images/Le%20cabinet/SALLE%20DETATOUAGE%20DOCTEUR%20LASER.jpg',
-    alt: 'Salle Détatouage - Docteur Laser',
+    alt: 'Salle Détatouage - Laser pas cher',
     title: 'Salle Détatouage',
     description: 'Salle spécialisée pour les traitements de détatouage laser'
   },

@@ -11,7 +11,7 @@ import { OptimizedImage } from './OptimizedImage';
 const navItems = [
   { href: '/', label: 'Accueil' },
   { href: '/actes', label: 'Soins' },
-  { href: '/docteur-laser', label: 'Docteur Laser', isNew: true },
+  { href: '/docteur-laser', label: 'Laser pas cher', isNew: true },
   { href: '/la-villa-esthetique', label: 'La Villa' },
   { href: '/blog', label: 'Blog' },
   { href: '/a-propos', label: 'À propos' },
@@ -64,7 +64,7 @@ export function Navbar() {
   const pathname = usePathname();
   const { brand } = useBrand();
 
-  const brandName = brand === 'villa' ? 'La villa Esthetique' : 'Docteur Laser';
+  const brandName = brand === 'villa' ? 'La villa Esthetique' : 'Laser pas cher';
   const ctaClass = brand === 'villa' ? 'btn-primary-villa' : 'btn-primary-laser';
 
   // Fermer le menu lors du changement de route
