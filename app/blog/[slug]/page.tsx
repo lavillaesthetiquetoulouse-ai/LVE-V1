@@ -6,8 +6,9 @@ import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import ShareButtons from './share-buttons'
 
-// Configuration ISR : régénération automatique toutes les 60 secondes
-export const revalidate = 60;
+// Configuration dynamique : mise à jour instantanée
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 // Générer les métadonnées dynamiques pour chaque article
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
@@ -221,27 +222,7 @@ function BlogPostContent({ post }: { post: BlogPost }) {
   )
 }
 
-// Générer les paramètres statiques pour tous les articles
-// Avec dynamicParams = true pour permettre la génération de nouvelles pages
-export const dynamicParams = true;
-
-export async function generateStaticParams() {
-  try {
-    console.log('🔧 Generating static params...')
-    const posts = await getBlogPosts()
-    console.log('📋 Found posts for static generation:', posts.length)
-    console.log('🔗 Generated slugs:', posts.map(p => p.slug))
-
-    // Générer seulement les 10 articles les plus récents au build
-    // Les autres seront générés à la demande
-    return posts.slice(0, 10).map((post) => ({
-      slug: post.slug,
-    }))
-  } catch (error) {
-    console.error('Error generating static params:', error)
-    return []
-  }
-}
+// Pas de génération statique - tout est dynamique pour une synchronisation instantanée
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = await getBlogPostBySlug(params.slug)
