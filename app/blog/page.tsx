@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   keywords: 'blog médecine esthétique, épilation laser, injections anti-âge, Dr Nadine Baron, Toulouse, dermatologie esthétique'
 };
 
+// Configuration ISR : régénération automatique toutes les 60 secondes
+export const revalidate = 60;
+
 async function getBlogData() {
   try {
     const [posts, categories] = await Promise.all([
