@@ -319,24 +319,32 @@ export default function DocteurLaserPage() {
                   </div>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center py-2 border-b border-pink-100">
-                      <span className="text-neutral-700">Visage complet</span>
-                      <span className="font-medium text-pink-600">120 €</span>
+                      <span className="text-neutral-700">Lèvre sup ou menton ou narines ou pommettes ou nez</span>
+                      <span className="font-medium text-pink-600">30 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-pink-100">
-                      <span className="text-neutral-700">Lèvre supérieure ou Menton</span>
+                      <span className="text-neutral-700">Favoris</span>
+                      <span className="font-medium text-pink-600">40 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-pink-100">
+                      <span className="text-neutral-700">Visage (lèvre, menton, ovale)</span>
+                      <span className="font-medium text-pink-600">95 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-pink-100">
+                      <span className="text-neutral-700">Visage</span>
+                      <span className="font-medium text-pink-600">100 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-pink-100">
+                      <span className="text-neutral-700">Cou, nuque</span>
                       <span className="font-medium text-pink-600">50 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-pink-100">
-                      <span className="text-neutral-700">Nuque</span>
-                      <span className="font-medium text-pink-600">50 €</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-pink-100">
-                      <span className="text-neutral-700">Pommettes, joues ou pattes</span>
-                      <span className="font-medium text-pink-600">70 €</span>
+                      <span className="text-neutral-700">Oreilles</span>
+                      <span className="font-medium text-pink-600">25 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
-                      <span className="text-neutral-700">Bas du visage ou cou</span>
-                      <span className="font-medium text-pink-600">90 €</span>
+                      <span className="text-neutral-700">Ovale</span>
+                      <span className="font-medium text-pink-600">50 €</span>
                     </div>
                   </div>
                 </div>
@@ -351,56 +359,96 @@ export default function DocteurLaserPage() {
                   </div>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center py-2 border-b border-purple-100">
-                      <span className="text-neutral-700">LOP (Ligne ombilicale pubienne)</span>
+                      <span className="text-neutral-700">Aisselles</span>
+                      <span className="font-medium text-purple-600">40 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-purple-100">
+                      <span className="text-neutral-700">Avant-bras + mains inclus</span>
+                      <span className="font-medium text-purple-600">80 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-purple-100">
+                      <span className="text-neutral-700">Bras entiers + mains inclus</span>
+                      <span className="font-medium text-purple-600">145 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-purple-100">
+                      <span className="text-neutral-700">Mains et doigts</span>
+                      <span className="font-medium text-purple-600">35 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-purple-100">
+                      <span className="text-neutral-700">Aréoles mammaires</span>
+                      <span className="font-medium text-purple-600">30 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-purple-100">
+                      <span className="text-neutral-700">Poitrine</span>
                       <span className="font-medium text-purple-600">60 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-purple-100">
-                      <span className="text-neutral-700">Aréoles</span>
+                      <span className="text-neutral-700">Ventre</span>
+                      <span className="font-medium text-purple-600">60 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-purple-100">
+                      <span className="text-neutral-700">Ligne ombilico-pubienne</span>
+                      <span className="font-medium text-purple-600">30 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-purple-100">
+                      <span className="text-neutral-700">Haut du dos</span>
                       <span className="font-medium text-purple-600">50 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-purple-100">
-                      <span className="text-neutral-700">Aisselles</span>
-                      <span className="font-medium text-purple-600">60 €</span>
+                      <span className="text-neutral-700">Bas du dos</span>
+                      <span className="font-medium text-purple-600">50 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-purple-100">
-                      <span className="text-neutral-700">Avant-bras</span>
+                      <span className="text-neutral-700">Dos complet</span>
                       <span className="font-medium text-purple-600">110 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-purple-100">
-                      <span className="text-neutral-700">Bras complet</span>
-                      <span className="font-medium text-purple-600">170 €</span>
+                      <span className="text-neutral-700">Maillot Classique (de propreté)</span>
+                      <span className="font-medium text-purple-600">40 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-purple-100">
-                      <span className="text-neutral-700">Maillot simple</span>
-                      <span className="font-medium text-purple-600">60 € <span className="text-xs text-neutral-500">(+20 € SIF)</span></span>
+                      <span className="text-neutral-700">Maillot Brésilien</span>
+                      <span className="font-medium text-purple-600">70 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-purple-100">
-                      <span className="text-neutral-700">Maillot échancré</span>
-                      <span className="font-medium text-purple-600">85 € <span className="text-xs text-neutral-500">(+20 € SIF)</span></span>
+                      <span className="text-neutral-700">Maillot Américain</span>
+                      <span className="font-medium text-purple-600">80 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-purple-100">
-                      <span className="text-neutral-700">Maillot intégral + SIF</span>
-                      <span className="font-medium text-purple-600">120 €</span>
+                      <span className="text-neutral-700">Maillot Intégral</span>
+                      <span className="font-medium text-purple-600">90 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-purple-100">
+                      <span className="text-neutral-700">Sillon Inter-Fessier</span>
+                      <span className="font-medium text-purple-600">20 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-purple-100">
                       <span className="text-neutral-700">Fesses</span>
-                      <span className="font-medium text-purple-600">120 €</span>
+                      <span className="font-medium text-purple-600">60 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-purple-100">
-                      <span className="text-neutral-700">Cuisses</span>
-                      <span className="font-medium text-purple-600">215 €</span>
+                      <span className="text-neutral-700">Jambes entières + pieds</span>
+                      <span className="font-medium text-purple-600">260 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-purple-100">
-                      <span className="text-neutral-700">Demi jambes</span>
-                      <span className="font-medium text-purple-600">170 €</span>
+                      <span className="text-neutral-700">Demi-jambes + pieds</span>
+                      <span className="font-medium text-purple-600">130 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-purple-100">
-                      <span className="text-neutral-700">Jambes entières</span>
-                      <span className="font-medium text-purple-600">350 €</span>
+                      <span className="text-neutral-700">Face interne des cuisses</span>
+                      <span className="font-medium text-purple-600">70 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-purple-100">
+                      <span className="text-neutral-700">Face postérieure des cuisses</span>
+                      <span className="font-medium text-purple-600">95 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-purple-100">
+                      <span className="text-neutral-700">Pieds et orteils</span>
+                      <span className="font-medium text-purple-600">30 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
-                      <span className="text-neutral-700">Mains ou Pieds</span>
-                      <span className="font-medium text-purple-600">60 €</span>
+                      <span className="text-neutral-700">Cuisses</span>
+                      <span className="font-medium text-purple-600">130 €</span>
                     </div>
                   </div>
                 </div>
@@ -412,68 +460,99 @@ export default function DocteurLaserPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div className="space-y-3">
                     <div className="flex justify-between items-center py-2 border-b border-rose-100">
-                      <span className="text-sm text-neutral-700">Aisselles + Maillot simple</span>
+                      <span className="text-sm text-neutral-700">Aisselles + Maillot classique + sif</span>
+                      <span className="font-medium text-rose-600">85 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-rose-100">
+                      <span className="text-sm text-neutral-700">Aisselles + Maillot brésilien + sif</span>
                       <span className="font-medium text-rose-600">105 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-rose-100">
-                      <span className="text-sm text-neutral-700">Aisselles + Maillot échancré</span>
-                      <span className="font-medium text-rose-600">135 €</span>
+                      <span className="text-sm text-neutral-700">Aisselles + Maillot Américain + sif</span>
+                      <span className="font-medium text-rose-600">115 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-rose-100">
-                      <span className="text-sm text-neutral-700">Aisselles + Maillot intégral + SIF</span>
-                      <span className="font-medium text-rose-600">150 €</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-rose-100">
-                      <span className="text-sm text-neutral-700">Demi jambes + Aisselles</span>
-                      <span className="font-medium text-rose-600">200 €</span>
+                      <span className="text-sm text-neutral-700">Aisselles + Maillot Intégral + sif</span>
+                      <span className="font-medium text-rose-600">125 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
-                      <span className="text-sm text-neutral-700">Jambes entières + Aisselles</span>
-                      <span className="font-medium text-rose-600">380 €</span>
+                      <span className="text-sm text-neutral-700">Demi-jambes + Aisselles + sif</span>
+                      <span className="font-medium text-rose-600">165 €</span>
                     </div>
                   </div>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center py-2 border-b border-rose-100">
-                      <span className="text-sm text-neutral-700">Demi jambes + Maillot simple</span>
-                      <span className="font-medium text-rose-600">225 €</span>
+                      <span className="text-sm text-neutral-700">Demi-jambes + Maillot classique + sif + pieds</span>
+                      <span className="font-medium text-rose-600">175 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-rose-100">
-                      <span className="text-sm text-neutral-700">Demi jambes + Maillot échancré</span>
-                      <span className="font-medium text-rose-600">254 €</span>
+                      <span className="text-sm text-neutral-700">Demi-jambes + Maillot brésilien + sif + pieds</span>
+                      <span className="font-medium text-rose-600">195 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-rose-100">
-                      <span className="text-sm text-neutral-700">Demi jambes + Maillot intégral</span>
-                      <span className="font-medium text-rose-600">290 €</span>
+                      <span className="text-sm text-neutral-700">Demi-jambes + Maillot Américain + sif + pieds</span>
+                      <span className="font-medium text-rose-600">205 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-rose-100">
-                      <span className="text-sm text-neutral-700">Jambes entières + Maillot simple</span>
-                      <span className="font-medium text-rose-600">405 €</span>
+                      <span className="text-sm text-neutral-700">Demi-jambes + Maillot Intégral + sif + pieds</span>
+                      <span className="font-medium text-rose-600">215 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
-                      <span className="text-sm text-neutral-700">Jambes entières + Maillot échancré</span>
-                      <span className="font-medium text-rose-600">435 €</span>
+                      <span className="text-sm text-neutral-700">Jambes entières + Aisselles + pieds</span>
+                      <span className="font-medium text-rose-600">295 €</span>
                     </div>
                   </div>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center py-2 border-b border-rose-100">
-                      <span className="text-sm text-neutral-700">Demi jambes + Aisselles + Maillot simple</span>
-                      <span className="font-medium text-rose-600">275 €</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-rose-100">
-                      <span className="text-sm text-neutral-700">Demi jambes + Aisselles + Maillot échancré</span>
+                      <span className="text-sm text-neutral-700">Jambes entières + Maillot classique + Sif + pieds</span>
                       <span className="font-medium text-rose-600">305 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-rose-100">
-                      <span className="text-sm text-neutral-700">Demi jambes + Aisselles + Maillot intégral</span>
-                      <span className="font-medium text-rose-600">330 €</span>
+                      <span className="text-sm text-neutral-700">Jambes entières + Maillot brésilien + sif + pieds</span>
+                      <span className="font-medium text-rose-600">325 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-rose-100">
-                      <span className="text-sm text-neutral-700">Jambes entières + Maillot échancré + Aisselles</span>
-                      <span className="font-medium text-rose-600">450 €</span>
+                      <span className="text-sm text-neutral-700">Jambes entières + Maillot Américain + sif + pieds</span>
+                      <span className="font-medium text-rose-600">335 €</span>
                     </div>
-                    <div className="flex justify-between items-center py-2">
-                      <span className="text-sm text-neutral-700">Jambes + Maillot intégral + SIF + Aisselles</span>
-                      <span className="font-medium text-rose-600">510 €</span>
+                    <div className="flex justify-between items-center py-2 border-b border-rose-100">
+                      <span className="text-sm text-neutral-700">Jambes entières + Maillot Intégral + sif + pieds</span>
+                      <span className="font-medium text-rose-600">345 €</span>
+                    </div>
+                    <div className="space-y-3 mt-6">
+                      <h6 className="text-sm font-medium text-rose-600">Forfaits 3 zones</h6>
+                      <div className="flex justify-between items-center py-2 border-b border-rose-100">
+                        <span className="text-xs text-neutral-700">Demi-jambes + Aisselles + Maillot simple + sif + pieds</span>
+                        <span className="font-medium text-rose-600">190 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-rose-100">
+                        <span className="text-xs text-neutral-700">Demi-jambes + Aisselles + Maillot Brésilien + sif + pieds</span>
+                        <span className="font-medium text-rose-600">220 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-rose-100">
+                        <span className="text-xs text-neutral-700">Demi-jambes + Aisselles + Maillot Américain + sif + pieds</span>
+                        <span className="font-medium text-rose-600">240 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-rose-100">
+                        <span className="text-xs text-neutral-700">Demi-jambes + Aisselles + Maillot Intégral + sif + pieds</span>
+                        <span className="font-medium text-rose-600">250 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-rose-100">
+                        <span className="text-xs text-neutral-700">Jambes entières + Aisselles + Maillot simple + sif + pieds</span>
+                        <span className="font-medium text-rose-600">290 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-rose-100">
+                        <span className="text-xs text-neutral-700">Jambes entières + Aisselles + Maillot Brésilien + sif + pieds</span>
+                        <span className="font-medium text-rose-600">360 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-rose-100">
+                        <span className="text-xs text-neutral-700">Jambes entières + Aisselles + Maillot Americain + sif + pieds</span>
+                        <span className="font-medium text-rose-600">365 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="text-xs text-neutral-700">Jambes entières + Aisselles + Maillot Intégal + sif + pieds</span>
+                        <span className="font-medium text-rose-600">370 €</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -497,36 +576,24 @@ export default function DocteurLaserPage() {
                   </div>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center py-2 border-b border-blue-100">
-                      <span className="text-neutral-700">Barbe entière</span>
-                      <span className="font-medium text-blue-600">110 €</span>
+                      <span className="text-neutral-700">Lèvre sup ou menton ou narines ou pommettes ou nez</span>
+                      <span className="font-medium text-blue-600">40 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-blue-100">
-                      <span className="text-neutral-700">Col chemise</span>
-                      <span className="font-medium text-blue-600">50 €</span>
+                      <span className="text-neutral-700">Visage</span>
+                      <span className="font-medium text-blue-600">100 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-blue-100">
-                      <span className="text-neutral-700">Nez</span>
+                      <span className="text-neutral-700">Col de chemise</span>
                       <span className="font-medium text-blue-600">40 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-blue-100">
                       <span className="text-neutral-700">Nuque</span>
-                      <span className="font-medium text-blue-600">60 €</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-blue-100">
-                      <span className="text-neutral-700">Oreilles</span>
-                      <span className="font-medium text-blue-600">40 €</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-blue-100">
-                      <span className="text-neutral-700">Pommettes</span>
-                      <span className="font-medium text-blue-600">80 €</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-blue-100">
-                      <span className="text-neutral-700">Tour de cou</span>
-                      <span className="font-medium text-blue-600">80 €</span>
+                      <span className="font-medium text-blue-600">50 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
-                      <span className="text-neutral-700">Visage entier (sans sourcils)</span>
-                      <span className="font-medium text-blue-600">160 €</span>
+                      <span className="text-neutral-700">Oreilles/nez</span>
+                      <span className="font-medium text-blue-600">35 €</span>
                     </div>
                   </div>
                 </div>
@@ -541,60 +608,80 @@ export default function DocteurLaserPage() {
                   </div>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center py-2 border-b border-cyan-100">
-                      <span className="text-neutral-700">Bas du dos</span>
-                      <span className="font-medium text-cyan-600">95 €</span>
+                      <span className="text-neutral-700">Aisselles</span>
+                      <span className="font-medium text-cyan-600">50 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-cyan-100">
-                      <span className="text-neutral-700">Haut du dos</span>
-                      <span className="font-medium text-cyan-600">145 €</span>
+                      <span className="text-neutral-700">Avant-bras + mains</span>
+                      <span className="font-medium text-cyan-600">90 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-cyan-100">
-                      <span className="text-neutral-700">Dos entier</span>
-                      <span className="font-medium text-cyan-600">240 €</span>
+                      <span className="text-neutral-700">Bras entiers + mains</span>
+                      <span className="font-medium text-cyan-600">150 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-cyan-100">
-                      <span className="text-neutral-700">Fesses</span>
-                      <span className="font-medium text-cyan-600">145 €</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-cyan-100">
-                      <span className="text-neutral-700">Maillot intégral</span>
-                      <span className="font-medium text-cyan-600">180 €</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-cyan-100">
-                      <span className="text-neutral-700">Torse</span>
-                      <span className="font-medium text-cyan-600">180 €</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-cyan-100">
-                      <span className="text-neutral-700">Ventre</span>
-                      <span className="font-medium text-cyan-600">130 €</span>
+                      <span className="text-neutral-700">Mains</span>
+                      <span className="font-medium text-cyan-600">35 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-cyan-100">
                       <span className="text-neutral-700">Épaules</span>
-                      <span className="font-medium text-cyan-600">110 €</span>
+                      <span className="font-medium text-cyan-600">60 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-cyan-100">
-                      <span className="text-neutral-700">Cuisses</span>
-                      <span className="font-medium text-cyan-600">295 €</span>
+                      <span className="text-neutral-700">Torse</span>
+                      <span className="font-medium text-cyan-600">100 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-cyan-100">
-                      <span className="text-neutral-700">Demi jambes</span>
-                      <span className="font-medium text-cyan-600">235 €</span>
+                      <span className="text-neutral-700">Ventre</span>
+                      <span className="font-medium text-cyan-600">120 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-cyan-100">
-                      <span className="text-neutral-700">Jambes entières</span>
-                      <span className="font-medium text-cyan-600">470 €</span>
+                      <span className="text-neutral-700">Torse et ventre</span>
+                      <span className="font-medium text-cyan-600">220 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-cyan-100">
-                      <span className="text-neutral-700">Aisselles</span>
+                      <span className="text-neutral-700">Haut du dos</span>
+                      <span className="font-medium text-cyan-600">120 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-cyan-100">
+                      <span className="text-neutral-700">Bas du dos</span>
                       <span className="font-medium text-cyan-600">80 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-cyan-100">
-                      <span className="text-neutral-700">Avant-bras</span>
-                      <span className="font-medium text-cyan-600">145 €</span>
+                      <span className="text-neutral-700">Dos complet</span>
+                      <span className="font-medium text-cyan-600">170 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-cyan-100">
+                      <span className="text-neutral-700">Maillot Classique (de propreté)</span>
+                      <span className="font-medium text-cyan-600">100 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-cyan-100">
+                      <span className="text-neutral-700">Maillot Intégral (SIF)</span>
+                      <span className="font-medium text-cyan-600">150 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-cyan-100">
+                      <span className="text-neutral-700">Sillon Inter-Fessier (SIF)</span>
+                      <span className="font-medium text-cyan-600">70 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-cyan-100">
+                      <span className="text-neutral-700">Fesses</span>
+                      <span className="font-medium text-cyan-600">140 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-cyan-100">
+                      <span className="text-neutral-700">Jambes entières</span>
+                      <span className="font-medium text-cyan-600">340 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-cyan-100">
+                      <span className="text-neutral-700">Demi-jambes</span>
+                      <span className="font-medium text-cyan-600">180 €</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-cyan-100">
+                      <span className="text-neutral-700">Pieds</span>
+                      <span className="font-medium text-cyan-600">40 €</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
-                      <span className="text-neutral-700">Bras complet</span>
-                      <span className="font-medium text-cyan-600">210 €</span>
+                      <span className="text-neutral-700">Cuisses</span>
+                      <span className="font-medium text-cyan-600">175 €</span>
                     </div>
                   </div>
                 </div>
@@ -603,39 +690,107 @@ export default function DocteurLaserPage() {
               {/* Forfaits Homme */}
               <div className="mt-12 bg-gradient-to-br from-blue-50/50 to-cyan-50/50 rounded-3xl p-8 border border-blue-200/30">
                 <h5 className="text-lg font-outfit font-medium text-center text-blue-600 mb-6">Forfaits Homme - Économisez jusqu'à 20%</h5>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center py-2 border-b border-blue-100">
-                      <span className="text-sm text-neutral-700">Dos + Épaules + Nuque</span>
-                      <span className="font-medium text-blue-600">300 €</span>
+
+                <div className="mb-8">
+                  <h6 className="text-md font-outfit font-medium text-blue-600 mb-4">Forfaits 2 zones</h6>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Fesses + SIF</span>
+                        <span className="font-medium text-blue-600">140 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Torse + ventre</span>
+                        <span className="font-medium text-blue-600">176 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Visage + Oreilles</span>
+                        <span className="font-medium text-blue-600">105 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="text-sm text-neutral-700">Visage + nez</span>
+                        <span className="font-medium text-blue-600">115 €</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-blue-100">
-                      <span className="text-sm text-neutral-700">Fesses + SIF</span>
-                      <span className="font-medium text-blue-600">180 €</span>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Maillot simple + Aisselles</span>
+                        <span className="font-medium text-blue-600">120 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Maillot Intégral + Aisselles</span>
+                        <span className="font-medium text-blue-600">160 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Maillot Simple + Demi-Jambes</span>
+                        <span className="font-medium text-blue-600">224 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="text-sm text-neutral-700">Maillot Intégral + Demi-Jambes</span>
+                        <span className="font-medium text-blue-600">264 €</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center py-2">
-                      <span className="text-sm text-neutral-700">Torse + Ventre</span>
-                      <span className="font-medium text-blue-600">300 €</span>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Maillot Simple + Jambes Entières</span>
+                        <span className="font-medium text-blue-600">352 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="text-sm text-neutral-700">Maillot Intégral + Jambes Entières</span>
+                        <span className="font-medium text-blue-600">392 €</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center py-2 border-b border-blue-100">
-                      <span className="text-sm text-neutral-700">Torse + Ventre + Cou</span>
-                      <span className="font-medium text-blue-600">350 €</span>
+                </div>
+
+                <div>
+                  <h6 className="text-md font-outfit font-medium text-blue-600 mb-4">Forfaits 3 zones</h6>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Dos + épaules + nuque</span>
+                        <span className="font-medium text-blue-600">248 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Torse + Ventre + cou</span>
+                        <span className="font-medium text-blue-600">203 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="text-sm text-neutral-700">Visage + Oreilles + Nez</span>
+                        <span className="font-medium text-blue-600">132 €</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-blue-100">
-                      <span className="text-sm text-neutral-700">Pommettes + Oreilles + Nez</span>
-                      <span className="font-medium text-blue-600">140 €</span>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Maillot Simple + Aisselles + Demi-Jambes</span>
+                        <span className="font-medium text-blue-600">248 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Maillot Intégral + Aisselles + Demi-Jambes</span>
+                        <span className="font-medium text-blue-600">285 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="text-sm text-neutral-700">Maillot Simple + Aisselles + Jambes Entières</span>
+                        <span className="font-medium text-blue-600">368 €</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center py-2">
-                      <span className="text-sm text-neutral-700">Fesses + SIF + Maillot intégral</span>
-                      <span className="font-medium text-blue-600">350 €</span>
-                    </div>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center py-2">
-                      <span className="text-sm text-neutral-700">Fesses + SIF + Jambes entières + Pieds</span>
-                      <span className="font-medium text-blue-600">700 €</span>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Maillot Intégral + Aisselles + Jambes Entières</span>
+                        <span className="font-medium text-blue-600">405 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Fesses + Maillot Intégral + Aisselles</span>
+                        <span className="font-medium text-blue-600">255 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                        <span className="text-sm text-neutral-700">Fesses + Maillot Intégral + Jambes Entières</span>
+                        <span className="font-medium text-blue-600">473 €</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="text-sm text-neutral-700">Fesses + Maillot Intégral + Demi-Jambes</span>
+                        <span className="font-medium text-blue-600">353 €</span>
+                      </div>
                     </div>
                   </div>
                 </div>
