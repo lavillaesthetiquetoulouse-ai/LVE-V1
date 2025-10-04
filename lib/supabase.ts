@@ -75,18 +75,11 @@ export interface BlogPost {
   updated_at: string
 }
 
-// Fonction pour optimiser l'URL d'image (convertir .png en .webp)
+// Fonction pour optimiser l'URL d'image (garde l'URL originale)
 function optimizeImageUrl(imageUrl?: string): string | undefined {
   if (!imageUrl) return imageUrl
 
-  // Si l'URL contient déjà .webp, on la garde
-  if (imageUrl.includes('.webp')) return imageUrl
-
-  // Si c'est une image du bucket Supabase et qu'elle se termine par .png, on essaie .webp
-  if (imageUrl.includes('fbslsxzirjpyzgqbdkfe.supabase.co') && imageUrl.endsWith('.png')) {
-    return imageUrl.replace('.png', '.webp')
-  }
-
+  // Retourne l'URL originale sans modification pour éviter les erreurs de chargement
   return imageUrl
 }
 
