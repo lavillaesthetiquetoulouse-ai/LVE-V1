@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = 'https://lavillaesthetique-toulouse.com';
+
   return {
     rules: [
       {
@@ -9,10 +11,28 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/admin/',
           '/api/',
+          '/private/',
           '/_next/',
-          '/.*',
+          '/static/',
+          '/node_modules/',
+          '/test-*',
+          '/*.json$',
+          '/*?*debug*',
+          '/*?*dev*',
         ],
       },
+      // Règles spécifiques pour les bots de moteurs de recherche principaux
+      {
+        userAgent: ['Googlebot', 'Bingbot', 'YandexBot', 'DuckDuckBot'],
+        allow: '/',
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/private/',
+        ],
+        crawlDelay: 1,
+      },
+      // Règles pour les bots d'IA - Autorise le contenu médical expert
       {
         userAgent: 'GPTBot',
         allow: [
@@ -20,7 +40,14 @@ export default function robots(): MetadataRoute.Robots {
           '/actes/',
           '/a-propos',
           '/contact',
+          '/docteur-laser',
+          '/la-villa-esthetique',
           '/',
+        ],
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/private/',
         ],
       },
       {
@@ -30,7 +57,14 @@ export default function robots(): MetadataRoute.Robots {
           '/actes/',
           '/a-propos',
           '/contact',
+          '/docteur-laser',
+          '/la-villa-esthetique',
           '/',
+        ],
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/private/',
         ],
       },
       {
@@ -40,34 +74,38 @@ export default function robots(): MetadataRoute.Robots {
           '/actes/',
           '/a-propos',
           '/contact',
+          '/docteur-laser',
+          '/la-villa-esthetique',
           '/',
+        ],
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/private/',
         ],
       },
       {
-        userAgent: 'anthropic-ai',
+        userAgent: ['anthropic-ai', 'Claude-Web'],
         allow: [
           '/blog/',
           '/actes/',
           '/a-propos',
           '/contact',
+          '/docteur-laser',
+          '/la-villa-esthetique',
           '/',
         ],
-      },
-      {
-        userAgent: 'Claude-Web',
-        allow: [
-          '/blog/',
-          '/actes/',
-          '/a-propos',
-          '/contact',
-          '/',
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/private/',
         ],
       },
     ],
     sitemap: [
-      'https://cheery-quokka-7f67a2.netlify.app/sitemap.xml',
-      'https://cheery-quokka-7f67a2.netlify.app/blog/sitemap.xml',
+      `${baseUrl}/sitemap.xml`,
+      `${baseUrl}/blog/sitemap.xml`,
     ],
-    host: 'https://cheery-quokka-7f67a2.netlify.app',
+    host: baseUrl,
   };
 }
